@@ -45,7 +45,7 @@ void loop() {
   message+=h;
   message+=",";
   message+=t;
-  message+=",";
+  
 //  Serial.println("");
  // Serial.print("gas : ");
   Serial.println(message);
