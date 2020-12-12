@@ -14,12 +14,14 @@ if __name__ == '__main__':
     while True:
         if ser.in_waiting >0:
             line = ser.readline().decode('utf-8').rstrip()
-            gas,flame,bright,soil = line.split(',')            
+            gas,flame,bright,soil,humid,temp = line.split(',')            
             doc_ref = db.collection(u'Damsohwa').document(u'RaspberryPi')
             doc_ref.set({
                 u'gas' : gas,
                 u'flame' : flame,
                 u'bright' : bright,
                 u'soil' : soil,
+                u'humid' : humid,
+                u'temp' : temp
                         })
-            print("gas : {} flame : {} bright : {} soil : {}".format(gas,flame,bright,soil))
+            print("gas : {} flame : {} bright : {} soil : {} humid : {} temp : {}".format(gas,flame,bright,soil,humid,temp))
