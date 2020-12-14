@@ -16,21 +16,21 @@ public class App {
     private final static String PATH = "C:\\Users\\SM820\\test-3e136-firebase-adminsdk-huwq7-8a8c72fe51.json";
     private final static String COLLECTION_NAME = "damsohwa";
 
-    public static void main( String[] args ) {
-        App app = new App();
-        try {
-            app.init();
-            app.makeDatabaseConn();
-            app.select();
-            app.insert();
-            app.update();
-          //  app.delete();       
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void main( String[] args ) {
+//        App app = new App();
+//        try {
+//            app.init();
+//            app.makeDatabaseConn();
+//            app.select();
+//            app.insert();
+//            app.update();
+//          //  app.delete();       
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     
-    private void init() throws Exception{
+    public void init() throws Exception{
         FileInputStream refreshToken = new FileInputStream(PATH);
         option = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(refreshToken))
@@ -39,11 +39,11 @@ public class App {
         FirebaseApp.initializeApp(option);
     }    
  
-    private void makeDatabaseConn(){  //Firestore 인스턴스 생성
+    public void makeDatabaseConn(){  //Firestore 인스턴스 생성
         db = FirestoreClient.getFirestore();
     }
     
-    private void select(){ //조회
+    public void select(){ //조회
         db.collection(COLLECTION_NAME).addSnapshotListener( (target, exception)->{
             System.out.println(" - select start - ");
             target.forEach( item->{
@@ -53,7 +53,7 @@ public class App {
         });
     }    
    
-    private void insert(){  //등록
+    public void insert(){  //등록
         Map<Object, Object> item = new HashMap<Object, Object>();
         item.put("name", "HELLO-WORLD5");
         item.put("numbers", 5674);
@@ -61,7 +61,7 @@ public class App {
         db.collection(COLLECTION_NAME).add(item);
     }
 
-    private void update(){  //수정
+    public void update(){  //수정
         Map<String, Object> update = new HashMap<String, Object>();
         update.put("name", "HELLO-WORLD9");
         update.put("numbers", 2341);
@@ -69,7 +69,7 @@ public class App {
         db.collection(COLLECTION_NAME).document("test").update(update);
     }
 
-    private void delete(){  //삭제
+    public void delete(){  //삭제
         db.collection(COLLECTION_NAME).document("test").delete();
     }
 }
