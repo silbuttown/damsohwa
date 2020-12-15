@@ -25,17 +25,18 @@ from plants_gas_flame import temp
 
 
 # weather_timeset
-set_time= "16:59"
+
+set_time= "17:24"
 
 # drug_timeset
-set_drug = "17:00"
+
+
+set_drug = "17:25:08"
 
 schedule.every().day.at(set_time).do(Tweather)
 schedule.every().day.at(set_time+":06").do(temperature)
 schedule.every().day.at(set_drug).do(medicine) # 매일 해당 시각에 medicine 함수를 실행하겠습니다.
 
-while True:
-    schedule.run_pending()
 
 
 
@@ -61,8 +62,6 @@ doc.to_dict()
 data_df = pd.DataFrame(doc.to_dict(), index=[0]).astype('float')
 
 
-
-
 data = doc.to_dict()
 
 
@@ -75,7 +74,11 @@ if float(data['bright']) <= 143:
     bright()
 if float(data['soil']) <= 1003.0:
     soil()
-if float(data['humid']) <= 50:
+if float(data['humid']) <= 30:
     humid()
 if float(data['temp']) <= 23:
-    temp()    
+    temp()
+    
+    
+while True:
+    schedule.run_pending()
