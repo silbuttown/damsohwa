@@ -9,21 +9,14 @@ import requests
 import urllib.request
 import pandas as pd
 
-#1215  #+++++지정한 이름으로 Firestore에 작성+++++++++
-from weather_alarm import Tweather
-from weather_alarm import temperature
+#1215  #필요한 함수 import
+from weather_alarm import Tweather, temperature
 from medicine_alarm import medicine
- 
-#+++++++++++++++++++++++++++++++++++++++++++
-from plants_gas_flame import gas
-from plants_gas_flame import flame
-from plants_gas_flame import bright
-from plants_gas_flame import soil
-from plants_gas_flame import humid
-from plants_gas_flame import temp
+from plants_gas_flame import gas ,flame, bright, soil, humid, temp
 
-
-
+# 기기가 연동해야하는 firebase 경로
+COLLECTION = u'Damsohwa'
+DOCUMENT = u'RaspberryPi'
 # weather_timeset
 
 set_time= "17:24"
@@ -47,7 +40,7 @@ firebase_admin.initialize_app(cred)
 db=firestore.client()
 
 
-doc_ref = db.collection(u'Damsohwa').document(u'RaspberryPi')
+doc_ref = db.collection(COLLECTION).document(DOCUMENT)
 
 
 try:

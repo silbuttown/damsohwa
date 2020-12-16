@@ -25,6 +25,6 @@ def scan(name):
                     u'humid' : humid,
                     u'temp' : temp
                         })
-            print("gas : {} flame : {} bright : {} soil : {} humid : {} temp : {}".format(gas,flame,bright,soil,humid,temp))
+            print("gas : {} flame : {} bright : {} soil : {} humid : {} temp : {}".format(gas,flame,bright,soil,humid,temp))            
             break;
     

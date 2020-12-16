@@ -8,63 +8,10 @@ import pygame
 import pandas as pd
 
 
-# cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json")
-# firebase_admin.initialize_app(cred)
-# db=firestore.client()
-# 
-# 
-# doc_ref = db.collection(u'Damsohwa').document(u'RaspberryPi')
-# 
-# 
-# try:
-#     doc = doc_ref.get()
-#     print(u'Document data : {}'.format(doc.to_dict()))
-# 
-# except :
-#     print(u'No such document!')
-# 
-# 
-# doc.to_dict()
-# data_df = pd.DataFrame(doc.to_dict(), index=[0]).astype('float')
-# 
-# 
-# 
-# 
-# data = doc.to_dict()
-# data_df
-# 
-# 
-# 
-# 
-# 
-# float(data['soil'])
-# 
-# 
-# 
-# 
-# 
-# damsohwa = data_df.loc[:,['soil','temp','bright','humid']]
-# 
-# 
-# 
-# gas = data_df.loc[:,['gas']]
-# 
-# 
-# 
-# flame = data_df.loc[:,['flame']]
-# 
-# 
-# damsohwa.columns = ["수분","온도","조도","습도"]
-# damsohwa
-
-
-
 f = open("kakaokey.txt", 'r')
 SECRET_KEY =f.readline()
 f.close()
 SECRET_KEY
-
-
 
 
 url = 'https://kakaoi-newtone-openapi.kakao.com/v1/synthesize'
@@ -185,17 +132,4 @@ def temp():
     pygame.mixer.music.play()
     time.sleep(7) # 문장이 5초 이상 될 것같은 경우 sleep 시간 조절.
     pygame.mixer.quit()   
-
  
-#if float(data['gas']) <= 14:
-    #gas()
-# if float(data['flame']) <= 1000:
-#    flame()
-# if float(data['bright']) <= 143:
-#     bright()
-# if float(data['soil']) <= 1003.0:
-#     soil()
-# if float(data['humid']) <= 50:
-#     humid()
-# if float(data['temp']) <= 23:
-#     temp()
