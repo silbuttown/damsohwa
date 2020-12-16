@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@ page import="damsohwa.App" %>
 <!DOCTYPE html>
+<% 
+	App app = new App();
+	app.init();
+	app.makeDatabaseConn();
+	//String rval = app.sel("suhyeon");
+	
+
+	
+	
+%>
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -116,11 +127,16 @@
                                     <li>
                                         <i class="fas fa-circle text-primary font-10 mr-2"></i>
                                         <span class="text-muted">토양습도</span>
-                                        <span class="text-dark float-right font-weight-medium">$2346</span>
+                                        <span class="text-dark float-right font-weight-medium">$1000</span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
-                                        <span class="text-muted">습도/온도</span>
+                                        <span class="text-muted">습도</span>
+                                        <span class="text-dark float-right font-weight-medium">$2108</span>
+                                    </li>
+                                    <li class="mt-3">
+                                        <i class="fas fa-circle text-danger font-10 mr-2"></i>
+                                        <span class="text-muted">온도</span>
                                         <span class="text-dark float-right font-weight-medium">$2108</span>
                                     </li>
                                     <li class="mt-3">

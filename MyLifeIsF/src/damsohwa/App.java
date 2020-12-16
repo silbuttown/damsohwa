@@ -18,20 +18,20 @@ public class App {
     private final static String PATH = "C:\\Users\\SM820\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json";
     private final static String COLLECTION_NAME = "Damsohwa";
     public String rval;
-    public static void main( String[] args ) {
-       App app = new App();
-        try {
+ //   public static void main( String[] args ) {
+ //      App app = new App();
+//        try {
 //            app.init();
 //            app.makeDatabaseConn();
 //            app.sel("suhyeon");
-        	app.select();
+//        	app.select();
 //            app.insert();
 //            app.update();
 //          //  app.delete();       
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//        } catch (Exception e) {
+ //           e.printStackTrace();
+ //       }
+ //   }
     
     public void init() throws Exception{
         FileInputStream refreshToken = new FileInputStream(PATH);
