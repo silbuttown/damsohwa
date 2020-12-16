@@ -4,7 +4,9 @@
     <%@ page import = "damsohwa_M.damsohwa_sensorVO" %>
 <!DOCTYPE html>
 <% 
-	damsohwa_sensorVO svo = (damsohwa_sensorVO)session.getAttribute("svo");
+	//damsohwa_sensorVO svo = (damsohwa_sensorVO)session.getAttribute("svo");
+	request.setCharacterEncoding("UTF-8");	
+	float soil = Float.parseFloat(session.getAttribute("soil").toString());
 
 %>
 <html>
@@ -122,7 +124,7 @@
                                     <li>
                                         <i class="fas fa-circle text-primary font-10 mr-2"></i>
                                         <span class="text-muted">토양습도</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=svo.getSoil()%></span>
+                                        <span class="text-dark float-right font-weight-medium"><%=soil%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
