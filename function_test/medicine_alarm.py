@@ -1,3 +1,4 @@
+import schedule
 import pygame
 import time
 import requests
@@ -34,3 +35,8 @@ def medicine():
     pygame.mixer.music.play()
     time.sleep(7) # 문장이 5초 이상 될 것같은 경우 sleep 시간 조절.
     pygame.mixer.quit()
+    
+
+# schedule.every().day.at("16:33").do(medicine) # 매일 해당 시각에 medicine 함수를 실행하겠습니다.
+# 
+#     schedule.run_pending()

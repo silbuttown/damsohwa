@@ -5,8 +5,52 @@ import time
 import urllib.request
 import requests
 import pygame
-import pandas as pd
 
+# cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json")
+# firebase_admin.initialize_app(cred)
+# db=firestore.client()
+# 
+# 
+# doc_ref = db.collection(u'Damsohwa').document(u'RaspberryPi')
+# 
+# 
+# try:
+#     doc = doc_ref.get()
+#     print(u'Document data : {}'.format(doc.to_dict()))
+# 
+# except :
+#     print(u'No such document!')
+# 
+# 
+# doc.to_dict()
+# data_df = pd.DataFrame(doc.to_dict(), index=[0]).astype('float')
+# 
+# 
+# 
+# 
+# data = doc.to_dict()
+# data_df
+# 
+# 
+# 
+# 
+# 
+# float(data['soil'])
+# 
+# 
+# damsohwa = data_df.loc[:,['soil','temp','bright','humid']]
+# 
+# 
+# 
+# gas = data_df.loc[:,['gas']]
+# 
+# 
+# 
+# flame = data_df.loc[:,['flame']]
+# 
+# 
+# damsohwa.columns = ["수분","온도","조도","습도"]
+# damsohwa
 
 f = open("kakaokey.txt", 'r')
 SECRET_KEY =f.readline()
@@ -19,7 +63,6 @@ request = urllib.request.Request(url)
 request.add_header('Host','kakaoi-newtone-openapi.kakao.com')
 request.add_header('Content-Type','application/xml')
 request.add_header('Authorization',f'KakaoAK {SECRET_KEY}')
-
 
 
 def gas():   
@@ -38,7 +81,6 @@ def gas():
     pygame.mixer.music.play()
     time.sleep(7) # 문장이 5초 이상 될 것같은 경우 sleep 시간 조절.
     pygame.mixer.quit()
-
 
 
 def flame():
@@ -132,4 +174,3 @@ def temp():
     pygame.mixer.music.play()
     time.sleep(7) # 문장이 5초 이상 될 것같은 경우 sleep 시간 조절.
     pygame.mixer.quit()   
- 
