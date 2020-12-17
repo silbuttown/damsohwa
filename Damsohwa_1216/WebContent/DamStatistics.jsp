@@ -6,7 +6,7 @@
 <% 
 	//damsohwa_sensorVO svo = (damsohwa_sensorVO)session.getAttribute("svo");
 	request.setCharacterEncoding("UTF-8");	
-	float soil = Float.parseFloat(session.getAttribute("soil").toString());
+	damsohwa_sensorVO dsVO = (damsohwa_sensorVO)session.getAttribute("dsVO");
 
 %>
 <html>
@@ -124,32 +124,32 @@
                                     <li>
                                         <i class="fas fa-circle text-primary font-10 mr-2"></i>
                                         <span class="text-muted">토양습도</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=soil%></span>
+                                        <span class="text-dark float-right font-weight-medium"><%=dsVO.getSoil()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
                                         <span class="text-muted">온도</span>
-                                        <span class="text-dark float-right font-weight-medium">$2108</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=dsVO.getTemp()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
                                         <span class="text-muted">습도</span>
-                                        <span class="text-dark float-right font-weight-medium">$2108</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=dsVO.getHumid()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
                                         <span class="text-muted">가스</span>
-                                        <span class="text-dark float-right font-weight-medium">$1204</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=dsVO.getGas()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
                                         <span class="text-muted">불꽃</span>
-                                        <span class="text-dark float-right font-weight-medium">$1204</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=dsVO.getFlame()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
                                         <span class="text-muted">조도</span>
-                                        <span class="text-dark float-right font-weight-medium">$1204</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=dsVO.getBright()%></span>
                                     </li>
                                 </ul>
                             </div>

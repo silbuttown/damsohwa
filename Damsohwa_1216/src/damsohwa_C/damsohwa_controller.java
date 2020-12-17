@@ -33,8 +33,8 @@ public class damsohwa_controller extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();		
 		String name = request.getParameter("name");		
-		name = "test";		
-		String PATH = "C:\\Users\\sj\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json";	   
+		name = "suhyeon";		
+		String PATH = "C:\\Users\\SM104\\Documents\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json";	   
 	    FirebaseOptions option;	    
 		
 		FileInputStream refreshToken = new FileInputStream(PATH);
@@ -45,15 +45,24 @@ public class damsohwa_controller extends HttpServlet {
 		 FirebaseApp.initializeApp(option);		 
 		 Firestore db = FirestoreClient.getFirestore();
 		
-		 DocumentReference docRef = db.collection("Damsohwa").document("test");
+		 DocumentReference docRef = db.collection("Damsohwa").document(name);
 			ApiFuture<DocumentSnapshot> future = docRef.get();		
-				//DocumentSnapshot document;					
-						//document = future.get();
+				
 						float soil =0;
 						try {
-							soil = Float.parseFloat(future.get().get("soil").toString());							
-								System.out.println("soil : "+soil);
-							session.setAttribute("soil",soil );
+							DocumentSnapshot document;					
+							document = future.get();
+							damsohwa_sensorVO dsVO = new damsohwa_sensorVO();
+									dsVO.setBright(Integer.parseInt(document.get("bright").toString()));
+									dsVO.setFlame(Integer.parseInt(document.get("flame").toString()));
+									dsVO.setGas(Integer.parseInt(document.get("gas").toString()));
+									dsVO.setHumid(Float.parseFloat(document.get("humid").toString()));
+									dsVO.setPlant(document.get("plant").toString());
+									dsVO.setSoil(Integer.parseInt(document.get("bright").toString()));
+									dsVO.setTemp(Float.parseFloat(document.get("temp").toString()));
+//							soil = Float.parseFloat(future.get().get("soil").toString());							
+//								System.out.println("soil : "+soil);
+							session.setAttribute("dsVO",dsVO );
 							response.sendRedirect("DamStatistics.jsp");
 							
 							
