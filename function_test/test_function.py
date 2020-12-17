@@ -13,15 +13,20 @@ ser.flush()
 def Scan(doc):
     #edoc = doc.encode('utf-8')
     while True:
-        if ser.in_waiting >0:
-            #read data from arduino
+        if ser.in_waiting >0:      
+           #read data from arduino
             line = ser.readline().decode('utf-8').rstrip()
+                      
             #split data to variables
             gas,flame,bright,soil,humid,temp = line.split(',')                        
+                      
+            
             #setting firebase path
             doc_ref = db.collection(u'Damsohwa').document(doc)
+                    
+            
             #update firebase data  // set -> go away ,  update -> it won't go away  
-            doc_ref.set({
+            doc_ref.update({
                     u'gas' : gas,
                     u'flame' : flame,
                     u'bright' : bright,
@@ -29,7 +34,6 @@ def Scan(doc):
                     u'humid' : humid,
                     u'temp' : temp
                         })            
-            #print("gas : {} flame : {} bright : {} soil : {} humid : {} temp : {}".format(gas,flame,bright,soil,humid,temp))
+           # print("gas : {} flame : {} bright : {} soil : {} humid : {} temp : {}".format(gas,flame,bright,soil,humid,temp))
             return line
             break;
-    

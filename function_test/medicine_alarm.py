@@ -3,9 +3,10 @@ import pygame
 import time
 import requests
 import urllib.request
+import os
 
 
-f = open("kakaokey.txt", 'r')
+f = open(os.path.dirname(__file__)+"/kakaokey.txt", 'r')
 SECRET_KEY =f.readline()
 f.close()
 SECRET_KEY
@@ -18,6 +19,8 @@ request.add_header('Host','kakaoi-newtone-openapi.kakao.com')
 request.add_header('Content-Type','application/xml')
 request.add_header('Authorization',f'KakaoAK {SECRET_KEY}')
 
+
+#+++++++++++++++++++==firebase db++++++++++++++++++++++++++++++++++++++++
 
 
 def medicine():
@@ -36,7 +39,3 @@ def medicine():
     time.sleep(7) # 문장이 5초 이상 될 것같은 경우 sleep 시간 조절.
     pygame.mixer.quit()
     
-
-# schedule.every().day.at("16:33").do(medicine) # 매일 해당 시각에 medicine 함수를 실행하겠습니다.
-# 
-#     schedule.run_pending()

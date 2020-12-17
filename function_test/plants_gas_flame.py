@@ -5,6 +5,7 @@ import time
 import urllib.request
 import requests
 import pygame
+import os
 
 # cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json")
 # firebase_admin.initialize_app(cred)
@@ -52,7 +53,7 @@ import pygame
 # damsohwa.columns = ["수분","온도","조도","습도"]
 # damsohwa
 
-f = open("kakaokey.txt", 'r')
+f = open(os.path.dirname(__file__)+"/kakaokey.txt", 'r')
 SECRET_KEY =f.readline()
 f.close()
 SECRET_KEY

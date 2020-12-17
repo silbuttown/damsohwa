@@ -18,30 +18,46 @@ from plants_gas_flame import gas, flame, bright, soil, humid, temp
 from test_function import Scan
 
 #+++++++++++++++++++++++++++++++++++++++++++++
-#from timecheck_firebase import Check, Check2
+from timecheck_firebase import Check, Check2
 
 
 # Target document
 DOCUMENT = 'plants_gas_flame'
 
 # weather_timeset
-set_time= "12:06"
+# set_time= "12:06"
 
-# drug_timeset
-set_drug = "12:06:08"
+# # drug_timeset
+# set_drug = "12:06:08"
+
+# m_time is -->>> firebase db
+
+# g_time is -->>> firebase db 
+
+cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json")
+#firebase_admin.initialize_app(cred)
+db=firestore.client()
 
 
-schedule.every().day.at(set_time).do(Tweather)
-schedule.every().day.at(set_time+":06").do(temperature)
-schedule.every().day.at(set_drug).do(medicine)
+doc_ref = db.collection(u'Damsohwa').document(u'RaspberryPi')
+g_time = doc_ref.get().get(u'g_time')
+m_time = doc_ref.get().get(u'm_time')
+
+
 # 매일 해당 시각에 medicine 함수를 실행하겠습니다.
 
 
+
+line = Scan(DOCUMENT)
+gas1,flame1,bright1,soil1,humid1,temp1 = line.split(',')
+gas1,flame1,bright1,soil1,humid1,temp1 = float(gas1),float(flame1),float(bright1),float(soil1),float(humid1),float(temp1)
+
 # +++++++++++++++++This is timecheck +++++++++++++++++++++++++
-
-# schedule.every(8).hours.do(Check,soil1)
-# schedule.every(24).hours.do(Check2,soil1)
-
+schedule.every(8).hours.do(Check,soil1)
+schedule.every(24).hours.do(Check2,soil1)
+schedule.every().day.at(g_time).do(Tweather)
+schedule.every().day.at(g_time+":06").do(temperature)
+schedule.every().day.at(m_time).do(medicine)
    
 while True:
     schedule.run_pending()
@@ -58,9 +74,9 @@ while True:
         flame()
     if bright1 <= 50:
         bright()
-    #if soil1 <= 0:
-     #   soil()
+    if soil1 <= 20:
+        soil()
     if humid1 <= 30:
         humid()
-    if temp1 <= 20:
+    if temp1 <= 15:
         temp()

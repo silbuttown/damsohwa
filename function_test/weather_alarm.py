@@ -4,12 +4,11 @@ import time
 import urllib.request
 import pandas as pd
 import requests
-
+import os
 
 
 
 key = 'urz15HMZIl7GH7VC1sxsnGwRWNAHv%2Bfo9bhWTmlP3P9i3tELJ2oomcBTQtNZBIsxXi5PmFAcw1Yajfb3xvGPsA%3D%3D'
-
 
 
 from datetime import datetime as dt
@@ -27,8 +26,6 @@ url_api = 'http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst?se
 resp = requests.get(url_api)
 
 
-
-
 data = resp.json()['response']['body']['items']['item']
 
 
@@ -37,7 +34,9 @@ data_df = pd.DataFrame(data)
 data_df.loc[:,['category','fcstValue']]
 
 
+
 data1 = data_df.loc[:,["fcstDate",'fcstTime',"category","fcstValue"]]
+
 
 
 data1[(data1['category']=='POP') | (data1['category']=='SKY') | (data1['category']=='REH') 
@@ -86,7 +85,7 @@ df = data3[data3['정보'] == '하늘상태']
 data3.index=range(len(data3.index))
 
 #kakao voice
-f = open("kakaokey.txt", 'r')
+f = open(os.path.dirname(__file__)+"/kakaokey.txt", 'r')
 SECRET_KEY =f.readline()
 f.close()
 SECRET_KEY
@@ -97,6 +96,13 @@ request = urllib.request.Request(url)
 request.add_header('Host','kakaoi-newtone-openapi.kakao.com')
 request.add_header('Content-Type','application/xml')
 request.add_header('Authorization',f'KakaoAK {SECRET_KEY}')
+
+
+#++++++++++++++++++++++++++ firebase db ++++++++++++++++++++++++++++++=++++++
+
+
+
+
 def Tweather():
     VoiceName = 'WOMAN_DIALOG_BRIGHT'
     if df['측정값'].iloc[0] == '맑음':  
@@ -137,12 +143,3 @@ def temperature():
     pygame.mixer.music.play()
     time.sleep(7) # 문장이 5초 이상 될 것같은 경우 sleep 시간 조절.
     pygame.mixer.quit()
-
-
-# schedule.every().day.at("16:30").do(Tweather)
-# schedule.every().day.at("16:30:06").do(temperature)
-# 
-# 
-# while True:
-#     schedule.run_pending()
-#     time.sleep(7)
