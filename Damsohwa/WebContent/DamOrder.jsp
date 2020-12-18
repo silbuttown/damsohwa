@@ -41,6 +41,7 @@
 	<script type="text/javascript">
 
 </head>
+
 <body>
 
 <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
@@ -198,7 +199,7 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-</script>
+
 
 //제이쿼리 
 $(document).ready(function(){
@@ -214,7 +215,7 @@ $(document).ready(function(){
 //이메일로 가입 버튼 눌렀을 때 작동되는 함수 - firebase 인증 모듈
 firebaseEmailAuth.createUserWithEmailAndPassword(email, password).then(function(user) {
     
-    userInfo = user; //가입 후 callBack 함수로 생성된 유저의 정보가 user에 담겨서 넘어온다. 전역변수에 할당.
+    userInfo = user;} //가입 후 callBack 함수로 생성된 유저의 정보가 user에 담겨서 넘어온다. 전역변수에 할당.
 
 </body>
 </html>
