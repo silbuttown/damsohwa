@@ -28,7 +28,7 @@
 	<!-- Bootstrap-Core-CSS -->
 	<link href="css/css_slider.css" type="text/css" rel="stylesheet" media="all">
 	<!-- banner slider -->
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/style.css?after" type="text/css" media="all" />
 	<!-- Style-CSS -->
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">

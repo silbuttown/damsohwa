@@ -27,12 +27,13 @@
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css?1">
 	
 	
 	
 <style>
 span {color: #177245;}
+
 </style>
 </head>
 <body>
@@ -42,7 +43,7 @@ span {color: #177245;}
 			<div class="wrap-login100">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-26">
-						로그인
+						<img src="images/damsohwaLogo.png" alt="My Image" width="80" height="110" style = "padding:1;">
 					</span>
 					<span class="login100-form-title p-b-48">
 						<i class="zmdi zmdi-font"></i>
@@ -69,7 +70,7 @@ span {color: #177245;}
 							새로운 계정 등록하기 >>
 						</span>
 
-						<a class="txt2" href="#">
+						<a class="txt2" href="DamOrder.jsp">
 							새 계정
 						</a>
 					</div>

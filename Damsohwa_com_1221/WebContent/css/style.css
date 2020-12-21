@@ -631,12 +631,13 @@ a.reqe-button {
 }
 
 .banner-top {
-    background: url(../images/main_logo.jpg) no-repeat bottom;
+    background: url(../images/main.jpg) no-repeat bottom;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;
+    /* height: 1000px; */
 }
 
 .banner-top1 {
@@ -1199,7 +1200,7 @@ h4.stat-text-wthree {
 
 /* footer */
 footer {
-    
+    background: url(./images/flowerbg.png);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;

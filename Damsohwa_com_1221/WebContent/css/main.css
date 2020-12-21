@@ -160,6 +160,7 @@ iframe {
 .limiter {
   width: 100%;
   margin: 0 auto;
+  background: url(../images/login_bg.jpg) no-repeat bottom;
 }
 
 .container-login100 {
@@ -174,7 +175,8 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;  
+  /* background: #f2f2f2; */
+  background: url(../images/login_bg.jpg) no-repeat bottom;  
 }
 
 .wrap-login100 {
