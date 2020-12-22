@@ -1,15 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import = "DSHModel.DSHsensorVO" %>
 <!DOCTYPE html>
 <% 
-	//damsohwa_sensorVO svo = (damsohwa_sensorVO)session.getAttribute("svo");
 	request.setCharacterEncoding("UTF-8");	
-	float soil = Float.parseFloat(session.getAttribute("soil").toString());
+	DSHsensorVO vo = (DSHsensorVO)session.getAttribute("svo");	
+	//float soil = Float.parseFloat(session.getAttribute("soil").toString());
 
 %>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -60,11 +61,11 @@
 	<!-- Font-Awesome-Icons-CSS -->
 	<!-- //Custom-Files -->
 	
-	<!-- ±‹æÓø¬ Ω∫≈©∏≥∆Æ Ω√¿€-->
+	<!-- Í∏ÅÏñ¥Ïò® Ïä§ÌÅ¨Î¶ΩÌä∏ ÏãúÏûë-->
 	<script type="text/javascript" src="script/jquery-3.2.1.min.js"></script>
   	<script type="text/javascript" src="script/all-plugins.js"></script>
   	<script type="text/javascript" src="script/plugin-active.js"></script>
-	<!-- ±‹æÓø¬ Ω∫≈©∏≥∆Æ ≥°-->
+	<!-- Í∏ÅÏñ¥Ïò® Ïä§ÌÅ¨Î¶ΩÌä∏ ÎÅù-->
 	
 	<!-- Web-Fonts -->
 	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
@@ -79,25 +80,25 @@
 			<div class="container">
 				<div class="header d-lg-flex justify-content-between align-items-center">
 					
-					<!-- ≥◊∫Ò∞‘¿Ãº« πŸ ∑Œ∞Ì -->
+					<!-- ÎÑ§ÎπÑÍ≤åÏù¥ÏÖò Î∞î Î°úÍ≥† -->
 					<h1 class="logo text-center">
 						<img src="images/damsohwaLogo.png" alt="My Image" width="30" height="50" style = "padding:10">
 					</h1>
-					<!-- ≥◊∫Ò∞‘¿Ãº« πŸ ∑Œ∞Ì ≥° -->
+					<!-- ÎÑ§ÎπÑÍ≤åÏù¥ÏÖò Î∞î Î°úÍ≥† ÎÅù -->
 					
-					<!-- ≥◊∫Ò∞‘¿Ãº« πŸ -->
+					<!-- ÎÑ§ÎπÑÍ≤åÏù¥ÏÖò Î∞î -->
 					<div class="nav_w3ls">
 						<nav>
 							<label for="drop" class="toggle toogle-2">Menu</label>
 							<input type="checkbox" id="drop" />
 							<ul class="menu">
 								<li><a href="#banner" class="smooth-scroll">HOME</a></li>
-								<li><a href="DamOrder.jsp">¡÷πÆ«œ±‚</a></li>
-								<li><a href="DamLogin.jsp">∑Œ±◊¿Œ</a></li>
+								<li><a href="DamOrder.jsp">Ï£ºÎ¨∏ÌïòÍ∏∞</a></li>
+								<li><a href="DamLogin.jsp">Î°úÍ∑∏Ïù∏</a></li>
 							</ul>
 						</nav>
 					</div>
-					<!-- ≥◊∫Ò∞‘¿Ãº« πŸ -->
+					<!-- ÎÑ§ÎπÑÍ≤åÏù¥ÏÖò Î∞î -->
 				</div>
 			</div>
 		</header>
@@ -120,29 +121,35 @@
                                 <div id="campaign-v2" class="mt-2" style="height:283px; width:100%;"></div>
                                 <ul class="list-style-none mb-0">
                                     <li>
+                                        <li>
                                         <i class="fas fa-circle text-primary font-10 mr-2"></i>
-                                        <span class="text-muted">≈‰æÁΩ¿µµ</span>
-                                        <span class="text-dark float-right font-weight-medium">$2346</span>
+                                        <span class="text-muted">ÌÜ†ÏñëÏäµÎèÑ</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=vo.getSoil()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
-                                        <span class="text-muted">Ω¿µµ/ø¬µµ</span>
-                                        <span class="text-dark float-right font-weight-medium">$2108</span>
+                                        <span class="text-muted">Ïò®ÎèÑ</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=vo.getTemp()%></span>
+                                    </li>
+                                    <li class="mt-3">
+                                        <i class="fas fa-circle text-danger font-10 mr-2"></i>
+                                        <span class="text-muted">ÏäµÎèÑ</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=vo.getHumid()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">∞°Ω∫</span>
-                                        <span class="text-dark float-right font-weight-medium">$1204</span>
+                                        <span class="text-muted">Í∞ÄÏä§</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=vo.getGas()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">∫“≤…</span>
-                                        <span class="text-dark float-right font-weight-medium">$1204</span>
+                                        <span class="text-muted">Î∂àÍΩÉ</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=vo.getFlame()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">¡∂µµ</span>
-                                        <span class="text-dark float-right font-weight-medium">$1204</span>
+                                        <span class="text-muted">Ï°∞ÎèÑ</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=vo.getBright()%></span>
                                     </li>
                                 </ul>
                             </div>

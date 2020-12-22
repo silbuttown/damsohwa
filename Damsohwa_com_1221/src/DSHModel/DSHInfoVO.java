@@ -1,13 +1,14 @@
 package DSHModel;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DSHInfoVO {
 	private String wakeH;
 	private String sleepH;
 	private String takeMedi;
-	private int takeMediE;
-	private String m_time[];
+	private long takeMediE;
+	private ArrayList<String> m_time;
 	//private String takeE[];
 	//private String takeTime[];
 	//private String takemin[];
@@ -19,7 +20,7 @@ public class DSHInfoVO {
 		this.m_time = null;		
 	}
 
-	public DSHInfoVO(String wakeH, String sleepH, String takeMedi, int takeMediE, String[] m_time) {
+	public DSHInfoVO(String wakeH, String sleepH, String takeMedi, int takeMediE, ArrayList<String> m_time) {
 		super();
 		this.wakeH = wakeH;
 		this.sleepH = sleepH;
@@ -52,27 +53,29 @@ public class DSHInfoVO {
 		this.takeMedi = takeMedi;
 	}
 
-	public int getTakeMediE() {
+	public long getTakeMediE() {
 		return takeMediE;
 	}
 
-	public void setTakeMediE(int takeMediE) {
+	public void setTakeMediE(long takeMediE) {
 		this.takeMediE = takeMediE;
 	}
 
-	public String[] getM_time() {
+	public ArrayList<String> getM_time() {
 		return m_time;
 	}
 
-	public void setM_time(String[] m_time) {
-		this.m_time = m_time;
+	public void setM_time(ArrayList<String> time) {
+		this.m_time = time;
 	}
 
 	@Override
 	public String toString() {
-		return "DSHInfo [wakeH=" + wakeH + ", sleepH=" + sleepH + ", takeMedi=" + takeMedi + ", takeMediE=" + takeMediE
-				+ ", m_time=" + Arrays.toString(m_time) + "]";
+		return "DSHInfoVO [wakeH=" + wakeH + ", sleepH=" + sleepH + ", takeMedi=" + takeMedi + ", takeMediE="
+				+ takeMediE + ", m_time=" + m_time + "]";
 	}
+	
+	
 
 	
 	

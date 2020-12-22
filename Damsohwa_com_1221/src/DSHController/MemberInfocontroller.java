@@ -1,6 +1,8 @@
 package DSHController;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +44,7 @@ public class MemberInfocontroller extends HttpServlet {
 		String takeE[] = new String[takeMediE];
 		int takeTime[] = new int[takeMediE];
 		int takemin[] = new int[takeMediE];
-		String time[] = new String[takeMediE];
+		ArrayList<String> time = new ArrayList<>();
 		if(takeMedi.equals("있다")) {
 			for(int i =0; i<takeMediE;i++) {
 				takeE[i] = request.getParameter("takeMediAP"+(i+1));
@@ -58,8 +60,8 @@ public class MemberInfocontroller extends HttpServlet {
 				if(takeE[i].equals("오후")) {
 					takeTime[i] += 12;				
 					}
-				time[i] = takeTime[i] +":"+ takemin[i];
-				System.out.println("시간 : "+time[i]);
+				time.add(takeTime[i] +":"+ takemin[i]);
+				System.out.println("시간 : "+time.get(i));
 			}
 			
 			info.setM_time(time);

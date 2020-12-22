@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*, java.text.*" %>
 <!DOCTYPE html>
@@ -397,7 +397,7 @@
                 <section>
                     <!--  화분선택 후 화면 -->
                     
-                    <form method="get" action="MemberInfo">
+                    <form method="get" action="MemberInfo" >
                         <div class="form-row p-t-20">
                             <label class="label label--block">수면시간</label>
                             <div class="p-t-15">
@@ -422,18 +422,21 @@
                         <div class="form-row p-t-20">
                             <label class="label label--block">주기적으로 드시는 약이 있나요?</label>
                             <div class="p-t-15">
-                            	<label class="radio-container m-r-55">
-                                    <input type="radio" checked="checked" name="takeMedi" onclick="div_OnOff(this.value,'medi');">
+                           		<label class="radio-container m-r-55">
+                                    <input type="radio" id="takeMedi" name="takeMedi" value="없다" onclick="div_OnOff(this.value,'medi');">없다
                                     <span class="checkmark"></span>
-                                </label>
+                                </label>                            	
                                 <label class="radio-container m-r-55">
                                     <input type="radio" id="takeMedi" name="takeMedi" value="있다" onclick="div_OnOff(this.value,'medi');">있다
                                     <span class="checkmark"></span>
                                 </label>
+                                <!-- 
                                 <label class="radio-container m-r-55">
-                                    <input type="radio" id="takeMedi" name="takeMedi" value="없다" onclick="div_OnOff(this.value,'medi');">없다
+                                    <input type="radio" checked="checked" name="takeMedi" onclick="div_OnOff(this.value,'medi');">
                                     <span class="checkmark"></span>
                                 </label>
+                                !-->
+                                
                             </div>
                         </div>
                         

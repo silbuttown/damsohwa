@@ -3,6 +3,7 @@ package DSHController;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,7 +73,8 @@ public class NewMemberController extends HttpServlet {
 		userData.put("ID",loginNo);
 		userData.put("g_time", info.getWakeH());
 		userData.put("s_time", info.getSleepH());
-		String time[] = new String[info.getTakeMediE()];
+		userData.put("takemediE",info.getTakeMediE());
+		ArrayList<String> time = new ArrayList<>();
 		if(info.getTakeMedi().equals("¿÷¥Ÿ")) {
 		/*	for(int i=0;i<info.getTakeMediE();i++) {
 				time[i] = info.getTakeTime()[i]+info.getTakemin()[i];
