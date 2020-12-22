@@ -10,10 +10,11 @@ public class damsohwa_sensorVO {
 	public String plant;
 	public int soil;
 	public float temp;
+	public String fireCheck;
 	public damsohwa_sensorVO() {
 		super();
 	}
-	public damsohwa_sensorVO(int iD, int bright, int flame, int gas, float humid, String plant, int soil, float temp) {
+	public damsohwa_sensorVO(int iD, int bright, int flame, int gas, float humid, String plant, int soil, float temp,String fireCheck) {
 		super();
 		ID = iD;
 		this.bright = bright;
@@ -23,6 +24,7 @@ public class damsohwa_sensorVO {
 		this.plant = plant;
 		this.soil = soil;
 		this.temp = temp;
+		this.fireCheck = fireCheck;
 	}
 	public damsohwa_sensorVO(int bright, int flame, int gas, float humid, int soil, float temp) {
 		super();
@@ -80,6 +82,12 @@ public class damsohwa_sensorVO {
 	}
 	public void setTemp(float temp) {
 		this.temp = temp;
+	}
+	public String getFireCheck() {
+		return fireCheck;
+	}
+	public void setFireCheck(String fireCheck) {
+		this.fireCheck = fireCheck;
 	}
 	
 	

@@ -126,7 +126,7 @@ public class App {
         update.put("booleans", false);    	
         db.collection(COLLECTION_NAME).document("test").update(update);
     }
-
+    
 //    public void delete(){  //ªË¡¶
 //        db.collection(COLLECTION_NAME).document("test").delete();
 //    }

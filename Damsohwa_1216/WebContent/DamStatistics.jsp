@@ -115,7 +115,7 @@
                 <!-- Start Sales Charts Section -->
                 <!-- *************************************************************** -->
                 <div class="row">
-                    <div class="col-lg-6 col-md-12" style="top:100px">
+                    <div class="col-lg-6 col-md-12"style="margin:0 auto; top:100px">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Total Sales</h4>
@@ -156,7 +156,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-lg-6 col-md-12" style="top:100px">
+                    <!-- <div class="col-lg-6 col-md-12" style="top:100px">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title mb-4">Earning by Location</h4>
@@ -254,7 +254,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- *************************************************************** -->
                 <!-- End Sales Charts Section -->

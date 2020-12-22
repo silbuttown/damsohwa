@@ -34,7 +34,7 @@ public class damsohwa_controller extends HttpServlet {
 		HttpSession session = request.getSession();		
 		String name = request.getParameter("name");		
 		name = "suhyeon";		
-		String PATH = "C:\\Users\\SM104\\Documents\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json";	   
+		String PATH = "C:\\Users\\SM820\\Documents\\damsohwa\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json";	   
 	    FirebaseOptions option;	    
 		
 		FileInputStream refreshToken = new FileInputStream(PATH);
@@ -60,9 +60,11 @@ public class damsohwa_controller extends HttpServlet {
 									dsVO.setPlant(document.get("plant").toString());
 									dsVO.setSoil(Integer.parseInt(document.get("bright").toString()));
 									dsVO.setTemp(Float.parseFloat(document.get("temp").toString()));
+									dsVO.setFireCheck(document.get("fireCheck").toString());
 //							soil = Float.parseFloat(future.get().get("soil").toString());							
 //								System.out.println("soil : "+soil);
 							session.setAttribute("dsVO",dsVO );
+							
 							response.sendRedirect("DamStatistics.jsp");
 							
 							
