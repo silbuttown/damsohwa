@@ -397,7 +397,7 @@
                 <section>
                     <!--  화분선택 후 화면 -->
                     
-                    <form method="get" action="MemberRootin">
+                    <form method="get" action="MemberInfo">
                         <div class="form-row p-t-20">
                             <label class="label label--block">수면시간</label>
                             <div class="p-t-15">
@@ -589,7 +589,7 @@
                 <div id="damsohwa" name="damsohwa">장미허브</div>
 				<!-- /선택 담소화 이미지 -->
 				
-                <form method="get" action="MemberOrder">
+                <form method="get" action="NewMember" >
                 <%
                 	Calendar cal = Calendar.getInstance();
                 %>
@@ -676,7 +676,7 @@
 					}
 					
 					function printName()  {
-						  const name = document.getElementById('birth').value;
+						  const birth = document.getElementById('birth').value;
 						  document.getElementById("result").innerText = birth;
 					}
 					</script>
