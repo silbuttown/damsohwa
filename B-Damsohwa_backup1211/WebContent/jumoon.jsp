@@ -397,7 +397,7 @@
                 <section>
                     <!--  화분선택 후 화면 -->
                     
-                    <form method="get" action="MemberRootin">
+                    <form id="form1" name="form1" method="post">
                         <div class="form-row p-t-20">
                             <label class="label label--block">수면시간</label>
                             <div class="p-t-15">
@@ -548,7 +548,7 @@
                               </div>
                         	  <!-- </div> -->
                           </div>
-                          <input type="submit" value="enter" style="float:left; margin-left:50px;">
+                          <input type="button" value="확인" onclick="memberRootin(); return false;">
                         </form>
 						<!-- 스크립트 시작 -->
 						<script>
@@ -577,6 +577,24 @@
 								document.getElementById(id).style.display = "";
 							}
 						}
+						
+						function memberRootin(){
+					        var formData = $("#form1").serialize();
+
+					        $.ajax({
+					            cache : false,
+					            url : "${pageContext.request.contextPath}/MemberRootin", // 요기에
+					            type : 'POST', 
+					            data : formData, 
+					            success : function(data) {
+					                var jsonObj = JSON.parse(data);
+					            }, // success 
+					    
+					            error : function(xhr, status) {
+					                alert(xhr + " : " + status);
+					            }
+					        }); // $.ajax */
+					    }
 						</script>
 					
 						
@@ -585,21 +603,25 @@
 
                 <h2>주문하기</h2>
                 <section>
+                
+                <form id="form2" name="form2" method="post">
+                
                 <!-- 선택 담소화 이미지 -->
-                <div id="damsohwa" name="damsohwa">장미허브</div>
+                <label class="radio-container m-r-55">
+                                    <input type="radio" id="damsohwa" name="damsohwa" value="장미허브">장미허브 ("선택한 화분이 맞으면, 클릭해 주세요")
+                                    <span class="checkmark"></span>
+                                </label>
 				<!-- /선택 담소화 이미지 -->
 				
-                <form method="get" action="MemberOrder">
                 <%
                 	Calendar cal = Calendar.getInstance();
                 %>
-				<div class="form-row p-t-20">
+				<div class="form-row m-b-55">
 					<div class="">담소화의 생일은 <%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>  (<%=cal.get(Calendar.MONTH)+1%>월 <%=cal.get(Calendar.DATE)%>일) 입니다.</div>
 					<div class="value">
 					</div>
 				</div>
 				
-						<div class="form-row m-b-55">
 					<div class="">벗의 생일은 언제인가요? (예: 0101 _ 월일을 4자리 숫자로 입력해주세요)</div>
 					<div class="value">
 						<div class="row row-space">
@@ -608,7 +630,6 @@
 									<input class="input--style-5" type="text" name="birth" id='birth' onkeyup='printName()'/>
 									<button onclick="onDisplay()" type="button"
 												class="dshbtn btn-outline-warning dshbtn-lg dshbtn-block" name="btnSelect" onclick="div_id(this.value,'medi');">확인</button>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -670,6 +691,8 @@
 						</div>
 					</div>
 				</div>
+				<input type="button" value="확인" onclick="memberOrder(); return false;">
+			</form>
 					<script>
 					function onDisplay() {
 					     $('#noneDiv').show();
@@ -679,9 +702,26 @@
 						  const name = document.getElementById('birth').value;
 						  document.getElementById("result").innerText = birth;
 					}
+					
+					function memberOrder(){
+				        var formData = $("#form2").serialize();
+
+				        $.ajax({
+				            cache : false,
+				            url : "${pageContext.request.contextPath}/MemberOrder", // 요기에
+				            type : 'POST', 
+				            data : formData, 
+				            success : function(data) {
+				                var jsonObj = JSON.parse(data);
+				            }, // success 
+				    
+				            error : function(xhr, status) {
+				                alert(xhr + " : " + status);
+				            }
+				        }); // $.ajax */
+				    }
 					</script>
-			<input type="submit" value="입력" style="float:left; margin-left:50px;">
-			</form>
+			
 			</section>
             </div>
         </div>
