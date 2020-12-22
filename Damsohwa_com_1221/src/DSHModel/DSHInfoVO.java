@@ -2,7 +2,7 @@ package DSHModel;
 
 import java.util.Arrays;
 
-public class DSHInfo {
+public class DSHInfoVO {
 	private String wakeH;
 	private String sleepH;
 	private String takeMedi;
@@ -12,14 +12,14 @@ public class DSHInfo {
 	//private String takeTime[];
 	//private String takemin[];
 	
-	public DSHInfo() {		
+	public DSHInfoVO() {		
 		super();
 		this.takeMedi = null;
 		this.takeMediE = 0;
 		this.m_time = null;		
 	}
 
-	public DSHInfo(String wakeH, String sleepH, String takeMedi, int takeMediE, String[] m_time) {
+	public DSHInfoVO(String wakeH, String sleepH, String takeMedi, int takeMediE, String[] m_time) {
 		super();
 		this.wakeH = wakeH;
 		this.sleepH = sleepH;

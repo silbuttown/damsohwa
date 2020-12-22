@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
+<% 
+	//damsohwa_sensorVO svo = (damsohwa_sensorVO)session.getAttribute("svo");
+	request.setCharacterEncoding("UTF-8");	
+	float soil = Float.parseFloat(session.getAttribute("soil").toString());
+
+%>
 <html>
 <head>
 <meta charset="EUC-KR">
