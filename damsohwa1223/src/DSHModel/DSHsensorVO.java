@@ -10,28 +10,9 @@ public class DSHsensorVO {
 	public String plant;
 	public int soil;
 	public float temp;
+	
 	public DSHsensorVO() {
 		super();
-	}
-	public DSHsensorVO(int iD, int bright, int flame, int gas, float humid, String plant, int soil, float temp) {
-		super();
-		ID = iD;
-		this.bright = bright;
-		this.flame = flame;
-		this.gas = gas;
-		this.humid = humid;
-		this.plant = plant;
-		this.soil = soil;
-		this.temp = temp;
-	}
-	public DSHsensorVO(int bright, int flame, int gas, float humid, int soil, float temp) {
-		super();
-		this.bright = bright;
-		this.flame = flame;
-		this.gas = gas;
-		this.humid = humid;
-		this.soil = soil;
-		this.temp = temp;
 	}
 	public int getID() {
 		return ID;
@@ -80,6 +61,12 @@ public class DSHsensorVO {
 	}
 	public void setTemp(float temp) {
 		this.temp = temp;
+	}
+	
+	@Override
+	public String toString() {
+		return "DSHsensorVO [ID=" + ID + ", bright=" + bright + ", flame=" + flame + ", gas=" + gas + ", humid=" + humid
+				+ ", plant=" + plant + ", soil=" + soil + ", temp=" + temp + "]";
 	}
 	
 	

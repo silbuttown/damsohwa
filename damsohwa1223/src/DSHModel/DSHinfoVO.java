@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DSHinfoVO {
+	public int ID;
 	private String wakeH;
 	private String sleepH;
 	private String takeMedi;
@@ -27,6 +28,14 @@ public class DSHinfoVO {
 		this.takeMedi = takeMedi;
 		this.takeMediE = takeMediE;
 		this.m_time = m_time;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 	public String getWakeH() {
@@ -71,9 +80,11 @@ public class DSHinfoVO {
 
 	@Override
 	public String toString() {
-		return "DSHInfo [wakeH=" + wakeH + ", sleepH=" + sleepH + ", takeMedi=" + takeMedi + ", takeMediE=" + takeMediE
-				+ ", m_time=" + m_time + "]";
+		return "DSHinfoVO [ID=" + ID + ", wakeH=" + wakeH + ", sleepH=" + sleepH + ", takeMedi=" + takeMedi
+				+ ", takeMediE=" + takeMediE + ", m_time=" + m_time + "]";
 	}
+
+
 
 
 

@@ -82,6 +82,7 @@ public class App {
     	ApiFuture<QuerySnapshot> querySnapshot = query.get();
 
     	for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+    		ivo.setID(Integer.parseInt(document.getString("ID")));
     		ivo.setWakeH(document.getString("g_time"));    		
     		ivo.setSleepH(document.getString("s_time"));
     		ivo.setM_time((ArrayList<String>)document.get("m_time"));
@@ -93,13 +94,26 @@ public class App {
     	  
     	}return ivo;
 				
-			}		
-    	     //dVO = new damsohwa_sensorVO(Integer.parseInt(DocumentSnapshot.getString("ID")),Integer.parseInt(DocumentSnapshot.getString("bright")),Integer.parseInt(DocumentSnapshot.getString("flame")),Integer.parseInt(DocumentSnapshot.getString("gas")) ,Float.parseFloat(DocumentSnapshot.getString("humid")),DocumentSnapshot.getString("plant"),Integer.parseInt(DocumentSnapshot.getString("soil")),Float.parseFloat(DocumentSnapshot.getString("temp")) );		
-    	     
-   //	});		
-   			
-			//return dVO;
-		
+			}
+   public DSHsensorVO selSensor(String id) throws InterruptedException, ExecutionException {
+	   DSHsensorVO svo = new DSHsensorVO();
+	   CollectionReference damsohwa = db.collection(COLLECTION_NAME);
+	   Query query = damsohwa.whereEqualTo("ID", id);
+	   ApiFuture<QuerySnapshot> querySnapshot = query.get();
+	   
+	   for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+		   svo.setID(Integer.parseInt(document.getString("ID")));
+		   svo.setBright(Integer.parseInt(document.getString("bright").toString()));
+		   svo.setFlame(Integer.parseInt(document.getString("flame")));
+		   svo.setGas(Integer.parseInt(document.getString("gas")));
+		   svo.setHumid(Float.parseFloat(document.getString("humid")));
+		   svo.setPlant(document.getString("plant"));
+		   svo.setSoil(Integer.parseInt(document.getString("soil")));
+		   svo.setTemp(Float.parseFloat(document.getString("temp")));
+		  
+	   }	   
+	   return svo;
+   }
    
    
 //    public void insert(){  //등록
@@ -116,9 +130,6 @@ public class App {
         update.put("numbers", 2341);
         update.put("booleans", false);    	
         db.collection(COLLECTION_NAME).document("test").update(update);
-    }
-    
-//    public void delete(){  //삭제
-//        db.collection(COLLECTION_NAME).document("test").delete();
-//    }
+    }    
+
 }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DSHModel.DSHinfoVO;
+import DSHModel.DSHsensorVO;
 /**
  * Servlet implementation class LoginController
  */
@@ -23,18 +24,23 @@ public class LoginController extends HttpServlet {
 		HttpSession session = request.getSession();
 		String id = request.getParameter("id");
 		DSHinfoVO ivo = new DSHinfoVO();
-		id = "01011223";
+		DSHsensorVO svo = new DSHsensorVO();
+//		id = "02021223";
 		App app = new App();
 		try {
 			app.init();			
 			app.makeDatabaseConn();
 			ivo = app.selInfo(id);
+			svo = app.selSensor(id);
 			System.out.println(ivo.toString());
+			System.out.println(svo.toString());
+			session.setAttribute("ivo", ivo);
+			session.setAttribute("svo", svo);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		response.sendRedirect("DamHome.jsp");
 	}
 
 }
