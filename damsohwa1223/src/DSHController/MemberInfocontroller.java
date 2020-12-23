@@ -27,9 +27,9 @@ public class MemberInfocontroller extends HttpServlet {
 		DSHInfo info = new DSHInfo();
 		
 		System.out.println("--여기부터--------------------------------------------------------");		
-		String wakeH = request.getParameter("wakeH"); // 기상시간
+		int wakeH = Integer.parseInt(request.getParameter("wakeH")); // 기상시간
 		System.out.println(wakeH);		
-		String sleepH = request.getParameter("sleepH"); // 취침시간
+		int sleepH = Integer.parseInt(request.getParameter("sleepH")); // 취침시간
 		System.out.println(sleepH);		
 		String takeMedi = request.getParameter("takeMedi"); // 복용여부_있다, 없다
 		System.out.println(takeMedi);
@@ -52,7 +52,7 @@ public class MemberInfocontroller extends HttpServlet {
 				System.out.print("takeMediAP"+(i+1)+" ");
 				//TakeMediAP1 2
 				System.out.println(takeE[i]);
-				takeTime[i] = Integer.parseInt(request.getParameter("takeMediT"+(i+1)));
+				takeTime[i] = Integer.parseInt(request.getParameter("takeMediT"+(i+1)));				
 				System.out.print("takeMediT"+(i+1)+" ");
 				System.out.println(takeTime[i]);
 				takemin[i] = Integer.parseInt(request.getParameter("takeMediM"+(i+1)));
@@ -61,7 +61,7 @@ public class MemberInfocontroller extends HttpServlet {
 				if(takeE[i].equals("오후")) {
 					takeTime[i] += 12;				
 					}
-				time.add(takeTime[i] +":"+ takemin[i]);
+				time.add(String.format("%02d:%02d",takeTime[i],takemin[i]));
 				//time[i] = takeTime[i] +":"+ takemin[i];
 				System.out.println("시간 : "+time);
 			}
@@ -71,8 +71,8 @@ public class MemberInfocontroller extends HttpServlet {
 		System.out.println("-----------------------------------------------------------------------------");
 		System.out.println("여기까지");
 		
-		info.setWakeH(wakeH);
-		info.setSleepH(sleepH);
+		info.setWakeH(String.format("%02d:00",wakeH));
+		info.setSleepH(String.format("%02d:00",sleepH));
 		info.setTakeMedi(takeMedi);
 		System.out.println(info.toString());
 		session.setAttribute("info", info);
