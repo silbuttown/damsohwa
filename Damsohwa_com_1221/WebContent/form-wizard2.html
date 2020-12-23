@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Basic Page Info -->
+	<meta charset="utf-8">
+	<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+
+	<!-- Site favicon -->
+	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="vendors/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="vendors/images/favicon-16x16.png">
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
+	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="src/plugins/jquery-steps/jquery.steps.css">
+	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119386393-1');
+	</script>
+</head>
+<body>
+
+	<div class="mobile-menu-overlay"></div>
+
+	<div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+
+				<!-- 슬라이드 시작 -->
+				<div class="pd-20 card-box mb-30">
+				<!-- 슬라이드 헤드 -->
+					<div class="clearfix">
+						<h4 class="text-blue h4">내게 맞는 담소화 찾기</h4>
+						<p class="mb-30">알맞은 담소화 찾기</p>
+					</div>
+				<!-- / 슬라이드 헤드 -->
+					
+				<script>
+                $(function ()
+                {
+                    $("#wizard").steps({
+                        headerTag: "h2",
+                        bodyTag: "section",
+                        transitionEffect: "slideLeft"
+                    });
+                });
+            	</script>
+				
+				<!-- 슬라이드 스텝 번호 -->
+					<div class="wizard-content">
+						<form class="tab-wizard wizard-circle wizard">
+							<h5>화분찾기</h5>
+				<!-- / 슬라이드 스텝 번호 -->
+				
+							<section>
+						      <!-- 슬라이드 바디 첫번쨰 줄 -->
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label >키우고 싶은 종류 :</label>
+											<input type="text" class="form-control">
+											
+											<label>
+                                    <input type="radio" checked="checked" name="radio1">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">꽃
+                                    <input type="radio" name="radio1" value="꽃">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">열매
+                                    <input type="radio" name="radio1" value="열매">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">기타
+                                    <input type="radio" name="radio1" value="기타">
+                                    <span class="checkmark"></span>
+                                </label>
+										</div>
+									</div>
+								</div>
+									
+								<!-- /슬라이드 바디 첫번쨰 줄 -->
+								
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>좋아하는 온도 :</label>
+											<label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="radio2">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">시원함
+                                    <input type="radio" name="radio2" value="시원함">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">따뜻함
+                                    <input type="radio" name="radio2" value="따뜻함">
+                                    <span class="checkmark"></span>
+                                </label>
+										</div>
+									</div>
+								</div>
+								<!-- /슬라이드 바디 두번쨰 줄 -->
+								
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>식물 기르는 것을 좋아하나요 ?</label>
+											 <label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="radio3">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">잘 기른다
+                                    <input type="radio" name="radio3" value="잘기른다">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">잘 못 기른다
+                                    <input type="radio" name="radio3" value="잘못기른다">
+                                    <span class="checkmark"></span>
+                                </label>
+										</div>
+									</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="radio2">
+                                    <span class="checkmark"></span>
+                                </label>   
+                                <label class="radio-container m-r-55">꽃
+                                    <input type="radio" name="radio2" value="꽃">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">열매
+                                    <input type="radio" name="radio2" value="열매">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">허브
+                                    <input type="radio" name="radio2" value="허브">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">나무
+                                    <input type="radio" name="radio2" value="나무">
+                                    <span class="checkmark"></span>
+                                </label>
+										</div>
+									</div>
+								</div>
+							</section>
+							
+							<!-- Step 2 -->
+							<h5>화분선택</h5>
+							<section>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<div class="dshselect">
+					<div class="dshcol-6 col-lg-3">
+						<div class="container">
+							<div class="dsh-order-card">
+								<div class="dshcard-body">
+									<div class="clearfix">
+										<i class="fa fa-cogs bg-flat-color-5 p-3 font-2xl mr-3 float-left text-light"></i>
+											<img src="img/dongbag.jpg"/>
+										<div class="text-muted text-uppercase font-weight-bold font-xs small">블랙로즈 동백</div>
+									</div>
+									<div class="b-b-1 pt-3"></div>
+									<hr class="dshhr">
+									<div class="more-info pt-2" style="margin-bottom: -10px;">
+										<a class="font-weight-bold font-xs btn-block text-muted small"
+											href="#"><button type="button"
+												class="dshbtn btn-outline-primary dshbtn-lg dshbtn-block" name="btnSelect" value="블랙로즈 동백">선택하기</button>
+											<i class="fa fa-angle-right float-right font-lg"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/.col-->
+					<div class="dshcol-6 col-lg-3">
+						<div class="container">
+							<div class="dsh-order-card">
+								<div class="dshcard-body">
+									<div class="clearfix">
+										<i
+											class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left text-light"></i>
+										<div class="h5 text-secondary mb-0 mt-1">추천 담소화 이미지</div>
+										<div
+											class="text-muted text-uppercase font-weight-bold font-xs small">포인세티아</div>
+									</div>
+									<div class="b-b-1 pt-3"></div>
+									<hr class="dshhr">
+									<div class="more-info pt-2" style="margin-bottom: -10px;">
+										<a class="font-weight-bold font-xs btn-block text-muted small"
+											href="#"><button type="button"
+												class="dshbtn btn-outline-secondary dshbtn-lg dshbtn-block" name="btnSelect" value="포인세티아">선택하기</button>
+											<i class="fa fa-angle-right float-right font-lg"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/.col-->
+					<div class="dshcol-6 col-lg-3">
+						<div class="container">
+							<div class="dsh-order-card">
+								<div class="dshcard-body">
+									<div class="clearfix">
+										<i
+											class="fa fa-moon-o bg-warning p-3 font-2xl mr-3 float-left text-light"></i>
+										<div class="h5 text-secondary mb-0 mt-1">추천 담소화 이미지</div>
+										<div
+											class="text-muted text-uppercase font-weight-bold font-xs small">블루베리</div>
+									</div>
+									<div class="b-b-1 pt-3"></div>
+									<hr class="dshhr">
+									<div class="more-info pt-2" style="margin-bottom: -10px;">
+										<a class="font-weight-bold font-xs btn-block text-muted small"
+											href="#"><button type="button"
+												class="dshbtn btn-outline-warning dshbtn-lg dshbtn-block" name="btnSelect" value="블루베리">선택하기</button>
+											<i class="fa fa-angle-right float-right font-lg"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/.col-->
+					<div class="dshcol-6 col-lg-3">
+						<div class="container">
+							<div class="dsh-order-card">
+								<div class="dshcard-body">
+									<div class="clearfix">
+										<i
+											class="fa fa-bell bg-danger p-3 font-2xl mr-3 float-left text-light"></i>
+										<div class="h5 text-secondary mb-0 mt-1">추천 담소화 이미지</div>
+										<div
+											class="text-muted text-uppercase font-weight-bold font-xs small">장미</div>
+									</div>
+									<div class="b-b-1 pt-3"></div>
+									<hr class="dshhr">
+									<div class="more-info pt-2" style="margin-bottom: -10px;">
+										<a class="font-weight-bold font-xs btn-block text-muted small"
+											href="#"><button type="button"
+												class="dshbtn btn-outline-danger dshbtn-lg dshbtn-block" name="btnSelect" value="장미">선택하기</button>
+											<i class="fa fa-angle-right float-right font-lg"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+							</section>
+							<!-- Step 3 -->
+							<h5>환경검색</h5> <!-- 데이터베이스에 입력될 '회원 개인 생활 습관 자료' -->
+                <section>
+                    <!--  화분선택 후 화면 -->
+                    
+                    <form id="form1" name="form1" method="post">
+								<div class="row">
+								
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>수면시간 :</label>
+											<select id="wakeH" name="wakeH">
+                                	<option value="">기상시간</option>
+                                	<!-- <option disabled="disabled" selected="selected"> -->
+                                	<% for(int i=1; i<=24; i++) {%>
+                                	<option value="<%=i%>"><%=i+"시"%></option>
+                                	<%}%>
+                                </select>
+										</div>
+										<div class="form-group">
+											<label>취침시간 :</label>
+											<select id="sleepH" name="sleepH">
+                                	<option value="">취침시간</option>
+                                	<!-- <option disabled="disabled" selected="selected"> -->
+                                	<% for(int i=1; i<=24; i++) {%>
+                                	<option value="<%=i%>"><%=i+"시"%></option>
+                                	<%}%>
+                                </select>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>주기적으로 드시는 약이 있나요 ?</label>
+											<label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="takeMedi" onclick="div_OnOff(this.value,'medi');">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">
+                                    <input type="radio" id="takeMedi" name="takeMedi" value="있다" onclick="div_OnOff(this.value,'medi');">있다
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">
+                                    <input type="radio" id="takeMedi" name="takeMedi" value="없다" onclick="div_OnOff(this.value,'medi');">없다
+                                    <span class="checkmark"></span>
+                                </label>
+										</div>
+										
+									<div id="medi" style="display:none">
+										<div class="form-group">
+											<label>약을 하루 몇 회 드시나요 ?</label>
+											<label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="takeMediE">복용횟수 선택
+                                    <span class="checkmark"></span>
+                                </label>
+                                 <label class="radio-container m-r-55">
+                                    <input type="radio" id="takeMediE" name="takeMediE" value="1" onclick="div1_OnOff(this.value,'mediTime1');">1회
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">
+                                    <input type="radio" id="takeMediE" name="takeMediE" value="2" onclick="div1_OnOff(this.value,'mediTime2');">2회
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">
+                                    <input type="radio" id="takeMediE" name="takeMediE" value="3" onclick="div1_OnOff(this.value,'mediTime3');">3회
+                                    <span class="checkmark"></span>
+                                </label>
+                                </div>
+										</div>
+										
+										<div id="mediTime1" style="display:none">
+										<div class="form-group">
+											<select  id="takeMediAP2" name="takeMediAP2" >
+                                		<option value="">오전/오후</option>
+                                		<option value="오전">오전</option>
+                                        <option value="오후">오후</option>
+                                    </select>
+                                    
+                                    <select id="takeMediT2" name="takeMediT2">
+                                	<option value="">시간</option>
+                                	<!-- <option disabled="disabled" selected="selected"> -->
+                                	<% for(int i=1; i<=12; i++) {%>
+                                	<option value="<%=i%>"><%=i+"시"%></option>
+                                	<%}%>
+                                	</select>
+                                
+                                	<select id="takeMediM2" name="takeMediM2">
+                                	<option value="">분</option>
+                                	<!-- <option disabled="disabled" selected="selected"> -->
+                                	<% for(int i=0; i<=59; i+=10) {%>
+                                	<option value="<%=i%>"><%=i+"분"%></option>
+                                	<%}%>
+                                	</select>
+                                </div>
+										</div>
+										
+										<div id="mediTime3" style="display:none">
+										<div class="form-group">
+											<select  id="takeMediAP3" name="takeMediAP3">
+                                		<option value="">오전/오후</option>
+                                		<option value="오전">오전</option>
+                                        <option value="오후">오후</option>
+                                    </select>
+                                    
+                                    <select id="takeMediT3" name="takeMediT3">
+                                	<option value="">시간</option>
+                                	<!-- <option disabled="disabled" selected="selected"> -->
+                                	<% for(int i=1; i<=12; i++) {%>
+                                	<option value="<%=i%>"><%=i+"시"%></option>
+                                	<%}%>
+                                	</select>
+                                
+                                	<select id="takeMediM3" name="takeMediM3">
+                                	<option value="">분</option>
+                                	<!-- <option disabled="disabled" selected="selected"> -->
+                                	<% for(int i=0; i<=59; i+=10) {%>
+                                	<option value="<%=i%>"><%=i+"분"%></option>
+                                	<%}%>
+                                	</select>
+                                </div>
+										</div>
+								 <input type="button" value="확인" onclick="memberRootin(); return false;">
+                        </form>
+						<!-- 스크립트 시작 -->
+						<script>
+						function div_OnOff(v,id){
+							 // 라디오 버튼 value 값 조건 비교
+ 							if(v == "있다"){
+ 								document.getElementById(id).style.display = ""; // 보여줌
+ 							}else{
+ 								document.getElementById(id).style.display = "none"; // 숨김
+ 							}
+						}
+						
+						function div1_OnOff(v,id){
+							 // 라디오 버튼 value 값 조건 비교
+							if(v == "1"){
+								document.getElementById(id).style.display = "";
+								document.getElementById("mediTime2").style.display = "none";
+								document.getElementById("mediTime3").style.display = "none";
+							}else if(v == "2"){
+								document.getElementById("mediTime1").style.display = "";
+								document.getElementById(id).style.display = "";
+								document.getElementById("mediTime3").style.display = "none";
+							}else if(v == "3"){
+								document.getElementById("mediTime1").style.display = "";
+								document.getElementById("mediTime2").style.display = "";
+								document.getElementById(id).style.display = "";
+							}
+						}
+						
+						function memberRootin(){
+					        var formData = $("#form1").serialize();
+
+					        $.ajax({
+					            cache : false,
+					            url : "${pageContext.request.contextPath}/MemberRootin", // 요기에
+					            type : 'POST', 
+					            data : formData, 
+					            success : function(data) {
+					                var jsonObj = JSON.parse(data);
+					            }, // success 
+					    
+					            error : function(xhr, status) {
+					                alert(xhr + " : " + status);
+					            }
+					        }); // $.ajax */
+					    }
+						</script>
+							</section>
+							
+							<!-- Step 4 -->
+							<h5>주문하기</h5>
+							<section>
+							<form id="form2" name="form2" method="post">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<!-- 선택 담소화 이미지 -->
+                <label class="radio-container m-r-55">
+                                    <input type="radio" id="damsohwa" name="damsohwa" value="장미허브">장미허브 ("선택한 화분이 맞으면, 클릭해 주세요")
+                                    <span class="checkmark"></span>
+                                </label>
+				<!-- /선택 담소화 이미지 -->
+										</div>
+										<%
+                	Calendar cal = Calendar.getInstance();
+                %>
+										<div class="form-group">
+											<label>담소화의 생일은 <%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>  (<%=cal.get(Calendar.MONTH)+1%>월 <%=cal.get(Calendar.DATE)%>일) 입니다.</label>
+										</div>
+										<div class="form-group">
+											<label>벗의 생일은 언제인가요? (예: 0101 _ 월일을 4자리 숫자로 입력해주세요)</label>
+											<input type="text" class="form-control"  name="birth" id='birth' onkeyup='printName()'/>
+											<button onclick="onDisplay()" type="button"
+												class="dshbtn btn-outline-warning dshbtn-lg dshbtn-block" name="btnSelect" onclick="div_id(this.value,'medi');">확인</button>
+										</div>
+										<div class="form-group">
+										<div class="" id="noneDiv" style="display:none;">
+											<label>일련번호</label>
+											<div class="form-control" id='result'></div>
+											<label>로그인 가능한 일련번호 입니다.(수정불가)</label>
+										</div>
+										
+									</div>
+									<div class="form-group">
+											<label>성함 :</label>
+											<input type="text" class="form-control" id="user" name="user">
+										</div>
+										<div class="form-group">
+											<label>연락처</label>
+											<input type="text" class="form-control" id="tel" name="tel">
+										</div>
+										<div class="form-group">
+											<label>주소</label>
+											<input type="text" class="form-control" id="addr" name="addr">
+										</div>
+								</div>
+								<input type="button" value="확인" onclick="memberOrder(); return false;">
+			</form>
+			<script>
+					function onDisplay() {
+					     $('#noneDiv').show();
+					}
+					
+					function printName()  {
+						  const name = document.getElementById('birth').value;
+						  document.getElementById("result").innerText = birth;
+					}
+					
+					function memberOrder(){
+				        var formData = $("#form2").serialize();
+
+				        $.ajax({
+				            cache : false,
+				            url : "${pageContext.request.contextPath}/MemberOrder", // 요기에
+				            type : 'POST', 
+				            data : formData, 
+				            success : function(data) {
+				                var jsonObj = JSON.parse(data);
+				            }, // success 
+				    
+				            error : function(xhr, status) {
+				                alert(xhr + " : " + status);
+				            }
+				        }); // $.ajax */
+				    }
+					</script>
+							</section>
+						</form>
+					</div>
+				</div>

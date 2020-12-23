@@ -1,0 +1,29 @@
+
+
+<form id="form1" name="form1" method="post">
+    
+    // 생략
+    
+    <input type="button" value="확인" onclick="memberRootin(); return false;">
+</form>
+ 
+<script>
+    function memberRootin(){
+        var formData = $("#form1").serialize();
+
+        $.ajax({
+            cache : false,
+            url : "${pageContext.request.contextPath}/testForm1", // 요기에
+            type : 'POST', 
+            data : formData, 
+            success : function(data) {
+                var jsonObj = JSON.parse(data);
+            }, // success 
+    
+            error : function(xhr, status) {
+                alert(xhr + " : " + status);
+            }
+        }); // $.ajax */
+    }
+</script>
+Colored by Color Scripter

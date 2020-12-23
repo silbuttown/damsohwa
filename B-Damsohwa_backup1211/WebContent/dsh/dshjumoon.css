@@ -1,13 +1,21 @@
 @charset "EUC-KR";
 
-.dshselect {
-	/*position: relative;*/
-    box-sizing: border-box;
-    display: table;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 200px;
+  height: 400px;
+  align-content: center;
 }
 
-div[class*="dshcol-"] {
-    float: left;
+.flex-item {
+	flex: 0 0 50px;
+}
+
+.dshselect {
+	/*position: relative;*/
+    display: table;
 }
 
 .dshselect {
@@ -36,15 +44,25 @@ div[class*="dshcol-"] {
 }
 
 .dshcol-6 {
-    width: 80%;
+    width: 50%;
+    min-height: 1px;
+    padding: 1px;
+}
+
+.dshcol-7 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-height: 100%;
+    float: right;
+}
+
+.dshcol-7 {
+    width: 50%;
     min-height: 1px;
     padding: 1px;
 }
 
 .dsh-order-card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
     display: block;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -57,7 +75,7 @@ div[class*="dshcol-"] {
 
 .dsh-order-card {
 	height: 500px;
-	width: fixed-width;
+	width: 100px;
 }
 
 /*@media (max-width: 1368px) {*/
@@ -79,7 +97,7 @@ div[class*="dshcol-"] {
 
 .dshbtn-block {
     display: block;
-    width: 100%;
+    width: 25%;
 }
 
 .btn-group-lg>.dshbtn, .dshbtn-lg {

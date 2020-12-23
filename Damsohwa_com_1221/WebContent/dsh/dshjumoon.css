@@ -1,0 +1,119 @@
+@charset "EUC-KR";
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 400px;
+  align-content: center;
+  justify-content: center;
+}
+
+.flex-item {
+	width: 45%;
+    min-width: 250px;
+    margin: 5px;
+}
+
+.dshselect {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    /*font-family: 'Open Sans' sans-serif !important;*/
+    font-size: 1rem;
+    /*font-size: 16px;*/
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    background: #f1f2f7;
+    width: 100%;
+}
+
+.dshcol-6 {
+	-ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-height: 100%;
+    width: 50%;
+    min-height: 1px;
+    padding: 1px;
+}
+
+
+.dshcol-7 {
+	-ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-height: 100%;
+    float: right;
+    width: 50%;
+    min-height: 1px;
+    padding: 1px;
+}
+
+.dsh-order-card {
+    display: block;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+/*@media (max-width: 1368px) {*/
+.dshcard-body {
+    padding: 20px;
+}
+
+.dshcard-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    margin: 20px;
+}
+
+/*¹öÆ°*/
+.dshbtn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.dshbtn-block {
+    display: block;
+    width: 25%;
+}
+
+.btn-group-lg>.dshbtn, .dshbtn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}
+
+.btn-outline-primary {
+    color:#344003;
+    background-color: transparent;
+    background-image: none;
+    border-color:#344003;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    background-color: transparent;
+    background-image: none;
+    border-color: #6c757d;
+}
+
+.btn-outline-warning {
+    color: #ffc107;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ffc107;
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    background-color: transparent;
+    background-image: none;
+    border-color: #dc3545;
+}
