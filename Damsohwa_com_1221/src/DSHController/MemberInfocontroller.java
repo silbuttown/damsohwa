@@ -1,13 +1,15 @@
 package DSHController;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DSHModel.DSHInfo;
+import DSHModel.DSHInfoVO;
 
 /**
  * Servlet implementation class MemberInfocontroller
@@ -22,7 +24,7 @@ public class MemberInfocontroller extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();		
-		DSHInfo info = new DSHInfo();
+		DSHInfoVO info = new DSHInfoVO();
 		
 		System.out.println("--여기부터--------------------------------------------------------");		
 		String wakeH = request.getParameter("wakeH"); // 기상시간
@@ -42,7 +44,7 @@ public class MemberInfocontroller extends HttpServlet {
 		String takeE[] = new String[takeMediE];
 		int takeTime[] = new int[takeMediE];
 		int takemin[] = new int[takeMediE];
-		String time[] = new String[takeMediE];
+		ArrayList<String> time = new ArrayList<>();
 		if(takeMedi.equals("있다")) {
 			for(int i =0; i<takeMediE;i++) {
 				takeE[i] = request.getParameter("takeMediAP"+(i+1));
@@ -58,8 +60,8 @@ public class MemberInfocontroller extends HttpServlet {
 				if(takeE[i].equals("오후")) {
 					takeTime[i] += 12;				
 					}
-				time[i] = takeTime[i] +":"+ takemin[i];
-				System.out.println("시간 : "+time[i]);
+				time.add(takeTime[i] +":"+ takemin[i]);
+				System.out.println("시간 : "+time.get(i));
 			}
 			
 			info.setM_time(time);

@@ -3,6 +3,7 @@ package DSHController;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +27,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 
-import DSHModel.DSHInfo;
+import DSHModel.DSHInfoVO;
 /**
  * Servlet implementation class NewMemberController
  */
@@ -39,7 +40,7 @@ public class NewMemberController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();		
-		DSHInfo info = (DSHInfo)session.getAttribute("info");
+		DSHInfoVO info = (DSHInfoVO)session.getAttribute("info");
 		String PATH = "C:\\Users\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json"; 
 		InputStream serviceAccount = new FileInputStream(PATH);
 	  	FileInputStream refreshToken = new FileInputStream(PATH);
@@ -72,7 +73,8 @@ public class NewMemberController extends HttpServlet {
 		userData.put("ID",loginNo);
 		userData.put("g_time", info.getWakeH());
 		userData.put("s_time", info.getSleepH());
-		String time[] = new String[info.getTakeMediE()];
+		userData.put("takemediE",info.getTakeMediE());
+		ArrayList<String> time = new ArrayList<>();
 		if(info.getTakeMedi().equals("¿÷¥Ÿ")) {
 		/*	for(int i=0;i<info.getTakeMediE();i++) {
 				time[i] = info.getTakeTime()[i]+info.getTakemin()[i];

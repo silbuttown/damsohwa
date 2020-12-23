@@ -70,7 +70,7 @@ span {color: #177245;}
 							새로운 계정 등록하기 >>
 						</span>
 
-						<a class="txt2" href="DamOrder.jsp">
+						<a class="txt2" href="DamOrder2.jsp">
 							새 계정
 						</a>
 					</div>

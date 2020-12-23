@@ -159,7 +159,7 @@
 								</li>
 								
 								
-								<li><a href="DamOrder.jsp">주문하기</a></li>
+								<li><a href="DamOrder2.jsp">주문하기</a></li>
 								<li><a href="DamStatistics.jsp">통계</a></li>
 								<li><a href="DamLogin.jsp">로그인</a></li>
 							</ul>
