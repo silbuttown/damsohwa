@@ -27,7 +27,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
 
-import DSHModel.DSHInfo;
+import DSHModel.DSHinfoVO;
 /**
  * Servlet implementation class NewMemberController
  */
@@ -40,7 +40,7 @@ public class NewMemberController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();		
-		DSHInfo info = (DSHInfo)session.getAttribute("info");
+		DSHinfoVO info = (DSHinfoVO)session.getAttribute("info");
 		String PATH = "C:\\Users\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json"; 
 		InputStream serviceAccount = new FileInputStream(PATH);
 	  	FileInputStream refreshToken = new FileInputStream(PATH);
@@ -73,6 +73,7 @@ public class NewMemberController extends HttpServlet {
 		userData.put("ID",loginNo);
 		userData.put("g_time", info.getWakeH());
 		userData.put("s_time", info.getSleepH());
+		userData.put("takeMediE",info.getTakeMediE());
 		//ArrayList<String> time = new ArrayList<>();
 		if(info.getTakeMedi().equals("¿÷¥Ÿ")) {
 		/*	for(int i=0;i<info.getTakeMediE();i++) {

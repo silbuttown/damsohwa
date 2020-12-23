@@ -3,24 +3,24 @@ package DSHModel;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DSHInfo {
+public class DSHinfoVO {
 	private String wakeH;
 	private String sleepH;
 	private String takeMedi;
-	private int takeMediE;
+	private long takeMediE;
 	private ArrayList<String> m_time;
 	//private String takeE[];
 	//private String takeTime[];
 	//private String takemin[];
 	
-	public DSHInfo() {		
+	public DSHinfoVO() {		
 		super();
 		this.takeMedi = null;
 		this.takeMediE = 0;
 		this.m_time = null;		
 	}
 
-	public DSHInfo(String wakeH, String sleepH, String takeMedi, int takeMediE, ArrayList<String> m_time) {
+	public DSHinfoVO(String wakeH, String sleepH, String takeMedi, int takeMediE, ArrayList<String> m_time) {
 		super();
 		this.wakeH = wakeH;
 		this.sleepH = sleepH;
@@ -53,12 +53,12 @@ public class DSHInfo {
 		this.takeMedi = takeMedi;
 	}
 
-	public int getTakeMediE() {
+	public long getTakeMediE() {
 		return takeMediE;
 	}
 
-	public void setTakeMediE(int takeMediE) {
-		this.takeMediE = takeMediE;
+	public void setTakeMediE(long long1) {
+		this.takeMediE = long1;
 	}
 
 	public ArrayList<String> getM_time() {

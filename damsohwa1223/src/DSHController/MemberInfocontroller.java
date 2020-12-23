@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import DSHModel.DSHInfo;
+import DSHModel.DSHinfoVO;
 
 /**
  * Servlet implementation class MemberInfocontroller
@@ -24,7 +24,7 @@ public class MemberInfocontroller extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();		
-		DSHInfo info = new DSHInfo();
+		DSHinfoVO info = new DSHinfoVO();
 		
 		System.out.println("--여기부터--------------------------------------------------------");		
 		int wakeH = Integer.parseInt(request.getParameter("wakeH")); // 기상시간
@@ -39,7 +39,7 @@ public class MemberInfocontroller extends HttpServlet {
 		System.out.println(takeMediE);
 		}
 		
-		info.setTakeMediE(takeMediE);
+		info.setTakeMediE((long) takeMediE);
 		
 		String takeE[] = new String[takeMediE];
 		int takeTime[] = new int[takeMediE];
