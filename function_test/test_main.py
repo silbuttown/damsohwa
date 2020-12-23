@@ -22,7 +22,16 @@ from timecheck_firebase import Check, Check2
 
 
 # Target document
-DOCUMENT = 'plants_gas_flame'
+DOCUMENT = '차세리'
+# 
+# 
+# m_time = ""
+# 
+# while True:
+#     
+#     schedule.every().day.at(m_time).do(medicine)
+
+
 
 # weather_timeset
 # set_time= "12:06"
@@ -39,10 +48,11 @@ cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232c
 db=firestore.client()
 
 
-doc_ref = db.collection(u'Damsohwa').document(u'RaspberryPi')
+doc_ref = db.collection(u'Damsohwa').document(DOCUMENT)
 g_time = doc_ref.get().get(u'g_time')
 m_time = doc_ref.get().get(u'm_time')
-
+print(u'g_time : {}'.format(g_time))
+print(u'm_time : {}'.format(m_time))
 
 # 매일 해당 시각에 medicine 함수를 실행하겠습니다.
 
@@ -57,11 +67,11 @@ schedule.every(8).hours.do(Check,soil1)
 schedule.every(24).hours.do(Check2,soil1)
 schedule.every().day.at(g_time).do(Tweather)
 schedule.every().day.at(g_time+":06").do(temperature)
-schedule.every().day.at(m_time).do(medicine)
+for i in range(0,len(m_time)):
+    schedule.every().day.at(m_time[i]).do(medicine)
+# schedule.every().day.at(m_time).do(medicine)
    
-while True:
-    schedule.run_pending()
-    
+while True:    
     #get data from Arduino
     line = Scan(DOCUMENT)
     gas1,flame1,bright1,soil1,humid1,temp1 = line.split(',')

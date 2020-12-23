@@ -4,6 +4,7 @@ from firebase_admin import firestore
 import schedule
 import time
 
+
 db=firestore.client()
 doc_ref = db.collection(u'Damsohwa').document(u'plants_gas_flame')
 
@@ -27,3 +28,13 @@ def Check2(soil):
         doc_ref.update({
             u'FirstCheck' : None
             })
+
+
+
+def FlameCheck(flame):
+    if flame >= 75:
+        doc_ref.update({
+        u'FlameCheck': '화재 발생 '
+        })
+
+           
