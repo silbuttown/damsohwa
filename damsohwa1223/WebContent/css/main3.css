@@ -603,7 +603,7 @@ input {
 
 .label {
   color: #555;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -748,7 +748,7 @@ input {
 
 .card-5 .card-heading {
   padding: 20px 0;
-  background: #1a1a1a;
+  background: #0f4b2d;
   -webkit-border-top-left-radius: 10px;
   -moz-border-radius-topleft: 10px;
   border-top-left-radius: 10px;

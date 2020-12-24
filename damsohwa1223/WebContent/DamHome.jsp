@@ -1,13 +1,14 @@
+<%@page import="DSHModel.DSHinfoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>담소화</title>
+	<head>
+	<meta charset="UTF-8">
+	<title>담소화</title>
 
-<!-- 템플렛 긁어온 내용 -->
-<title>Plants Agriculture Category Bootstrap Responsive Website Template | Home :: W3layouts</title>
+	<!-- 템플렛 긁어온 내용 -->
+	<title>Plants Agriculture Category Bootstrap Responsive Website Template | Home :: W3layouts</title>
 	<!-- Meta tag Keywords -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8" />
@@ -22,7 +23,8 @@
 		}
 	</script>
 	<!--// Meta tag Keywords -->
-
+	
+	<link rel="stylesheet" href="dsh/dshjumoon.css">
 	<!-- Custom-Files -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<!-- Bootstrap-Core-CSS -->
@@ -56,36 +58,36 @@
 	<!-- 템플렛 긁어온 내용 끝 -->
 	<style>
 	
-@font-face {
+	@font-face {
     font-family: SeoulHangangM;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulHangangM.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+	}
 
 	@font-face {
     font-family: HSGyoulnoonkot;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/HSGyoulnoonkot.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+	}
 
 	@font-face {
     font-family: RIDIBatang;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+	}
 
-@font-face {
+	@font-face {
     font-family: GyeonggiBatang;
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+	}
 
 	h2, h3, h5{
-  font-family: RIDIBatang, serif;
+  	font-family: RIDIBatang, serif;
 	}
 	
 	p {
@@ -117,11 +119,14 @@
 	
 	
 	</style>
+	</head>
+	<body>
 
-</head>
-<body>
+		<%
+			DSHinfoVO ivo = (DSHinfoVO)session.getAttribute("ivo");
+		%>
 
-<div id="home">
+	<div id="home">
 		
 		<!-- 네비게이션 바 시작 -->
 		<header class="header-style fixed-top">
@@ -135,8 +140,8 @@
 					<!-- 네비게이션 바 로고 끝 -->
 					
 					<!-- 네비게이션 바 -->
-					<div class="nav_w3ls" style="height: 100px;">
-						<nav>
+					<div class="dshnav_w3ls">
+						<nav class="dshnav">
 							<label for="drop" class="toggle toogle-2">Menu</label>
 							<input type="checkbox" id="drop"/>
 							<ul class="menu">
@@ -158,10 +163,13 @@
 									</ul> -->
 								</li>
 								
-								
 								<li><a href="DamOrder.jsp">주문하기</a></li>
 								<li><a href="DamStatistics.jsp">통계</a></li>
+							<%if(ivo!=null) { %>
+								<li><a href="DamHome.jsp">로그아웃</a></li>
+							<%}else { %>
 								<li><a href="DamLogin.jsp">로그인</a></li>
+							<%} %>
 							</ul>
 						</nav>
 					</div>
@@ -585,13 +593,13 @@
   firebase.analytics();
 </script> -->
 
-<!-- footer -->
-	<footer class="text-center py-4">
-		<div class="container py-xl-5 py-4" style="background-image: url(images/flowerbg.jpg) no-repeat bottom;">
+	<!-- footer -->
+		<footer class="text-center py-4">
+			<div class="container py-xl-5 py-4" style="background-image: url(images/flowerbg.jpg) no-repeat bottom;">
 			
-			<div class="contact-left-footer mt-4">
-				<h6 class="text-da let mb-3">건강한 당신의 삶을 응원합니다.</h6>
-				<ul>
+				<div class="contact-left-footer mt-4">
+					<h6 class="text-da let mb-3">건강한 당신의 삶을 응원합니다.</h6>
+					<ul>
 					<li>
 						<p>
 							<i class="fa fa-map-marker mr-2"></i>광주광역시 남구 송암로 60
@@ -608,23 +616,23 @@
 							<a href="mailto:info@example.com">Damsohwa@gmail.com</a>
 						</p>
 					</li>
-				</ul>
-			</div>
-			<!-- //address -->
+					</ul>
+				</div>
+				<!-- //address -->
 			
-			<!-- copyright -->
-			<div class="w3l-copy text-center mt-5">
+				<!-- copyright -->
+				<div class="w3l-copy text-center mt-5">
 				<p class="text-da">© 2021 Damsohwa. All rights reserved.
 				</p>
+				</div>
+				<!-- //copyright -->
 			</div>
-			<!-- //copyright -->
-		</div>
-	</footer>
-	<!-- //footer -->
+		</footer>
+		<!-- //footer -->
 
-	<!-- move top icon -->
-	<a href="#home" class="move-top text-center" style="color: #177245"></a>
-	<!-- //move top icon -->
+		<!-- move top icon -->
+		<a href="#home" class="move-top text-center" style="color: #177245"></a>
+		<!-- //move top icon -->
 
-</body>
+	</body>
 </html>

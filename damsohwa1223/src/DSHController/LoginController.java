@@ -25,6 +25,7 @@ public class LoginController extends HttpServlet {
 		String id = request.getParameter("id");
 		DSHinfoVO ivo = new DSHinfoVO();
 		DSHsensorVO svo = new DSHsensorVO();
+		System.out.println("id : "+id);
 //		id = "02021223";
 		App app = new App();
 		try {

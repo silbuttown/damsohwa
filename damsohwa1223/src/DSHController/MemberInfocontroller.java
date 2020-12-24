@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+
 import DSHModel.DSHinfoVO;
 
 /**
@@ -76,6 +79,17 @@ public class MemberInfocontroller extends HttpServlet {
 		info.setTakeMedi(takeMedi);
 		System.out.println(info.toString());
 		session.setAttribute("info", info);
+		
+		String gson = new Gson().toJson(info);
+        
+        try {
+            //ajax로 리턴해주는 부분
+            response.getWriter().write(gson);
+        } catch (JsonIOException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 		//response.sendRedirect("DamOrder2.jsp");
 		/*String takeMediAP1 = request.getParameter("takeMediAP1"); // 복용시간_오전, 오후
 		System.out.println(takeMediAP1);

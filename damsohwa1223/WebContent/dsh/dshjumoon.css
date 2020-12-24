@@ -1,5 +1,53 @@
 @charset "EUC-KR";
 
+.limit {
+    width: 100%;
+    background: url(../images/login_bg.jpg);
+    overflow: hidden;
+}
+
+.content {
+	background: #f2f2f2;
+    background-color: rgba( 255, 255, 255, 0.7 );
+}
+
+.sl {
+}
+
+.dshnav_w3ls {
+	width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.dshnav {
+	padding-top: 40px;
+ }
+ 
+ 
+
+.toggle toogle-2{
+		margin-top: 100px;
+	}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.header-style {
+    /* background: #fff; */
+    /* padding: 25px 0; */
+    /* -webkit-transition: .5s all; */
+    -moz-transition: .5s all;
+    /* transition: .5s all; */
+    /* z-index: 99; */
+    /* box-shadow: 3px 3px 30px 4px rgba(8, 8, 8, 0.07); */
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -24,10 +72,17 @@
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    text-align: left;
+    text-align: center;
     background-color: #fff;
     background: #f1f2f7;
+    background-color: rgba( 255, 255, 255, 0.1 );
     width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+
+.clearfix {
+	color: #0f4b2d;
 }
 
 .dshcol-6 {
@@ -59,11 +114,17 @@
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
+    background-color: rgba( 255, 255, 255, 0.7 );
 }
 
-/*@media (max-width: 1368px) {*/
-.dshcard-body {
-    padding: 20px;
+.dsh-serial {
+	color: #161b01;
+	padding: 1rem;
+    font-size: 0.7rem;
+    background-color: #f2f7e1;
+    border: 1px solid #f2f7e1;
+    line-height: 1;
+    border-radius: .3rem;
 }
 
 .dshcard-body {
@@ -74,27 +135,53 @@
 }
 
 /*¹öÆ°*/
+.more-info.pt-2 {
+	text-align: center;
+}
+
+.btn-outline-pr:hover {
+    color: #fff;
+    background-color: #177245;
+    border-color: #177245;
+}
+
+/*
+.btn-outline-pr:done {
+    color: #343a40;
+    background-color: #eee;
+    border-color: #eee;
+}
+*/
+
 .dshbtn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
 
 .dshbtn-block {
-    display: block;
-    width: 25%;
+    width: auto;
+}
+
+.dshbtn-done {
+	padding: .5rem 1rem;
+    font-size: 0.7rem;
+    line-height: 1;
+    border-radius: .3rem;
 }
 
 .btn-group-lg>.dshbtn, .dshbtn-lg {
     padding: .5rem 1rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.5;
     border-radius: .3rem;
 }
 
-.btn-outline-primary {
+.btn-outline-pr {
     color:#344003;
     background-color: transparent;
     background-image: none;
-    border-color:#344003;
+    border-color:#344003 !important;
+    position: relative;
+    border: solid 1px;
 }
 
 .btn-outline-secondary {

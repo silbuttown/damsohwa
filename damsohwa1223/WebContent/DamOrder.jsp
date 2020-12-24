@@ -1,3 +1,4 @@
+<%@page import="DSHModel.DSHinfoVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*, java.text.*" %>
@@ -14,7 +15,7 @@
     <meta name="keywords" content="Colorlib Templates">
     
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title>주문하기</title>
     <script type="text/javascript">
     function trans(){
     	document.g
@@ -29,26 +30,31 @@
 	<!-- banner slider -->
 	<link rel="stylesheet" href="css/style3.css" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" type="text/css" href="css/style4.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/style4.css"> -->
+	
 
     <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+   <!--  <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"> -->
+    <!-- <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all"> -->
     <!-- Font special for pages-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     
 
     <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <!-- <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all"> -->
+    <!-- <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all"> -->
 
     <!-- Main CSS-->
     <link href="css/main3.css" rel="stylesheet" media="all">
     
     <link rel="stylesheet" href="dsh/dshjumoon.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css?1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
+	<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
     
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>jQeury.steps Demos</title>
+        <!-- jquery slide -->
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/normalize.css">
@@ -59,14 +65,6 @@
         <script src="lib/jquery.cookie-1.3.1.js"></script>
         <script src="build/jquery.steps.js"></script>
         
-        <style>
-    
-    	legend{
-    		color: blue;
-    		font-size: 25px;
-    		}
-    	</style>
-    
     <script type="text/javascript" src="<c:url value="script/jquery-3.2.1.min.js"/>"></script>
 	
 	<script>
@@ -78,29 +76,28 @@
 	String plant2txt = "";
 	String plant1img = "";
 	String plant2img = "";
-	String plantSlct = "";
 	%>
-
  	
- 	function checkRow(event) {
-		document.getElementById('damsohwa').innerHTML = event + document.getElementById('damsohwa').innerHTML;
+	function checkRow(event) {
+ 		//document.getElementById('damsohwa').innerHTML = event + document.getElementById('damsohwa').innerHTML;
 		document.getElementById('damsohwa').value = event;
+		document.getElementById("plant").innerText = event;
 		var event_test = event;
-		alert(event_test);
-	}
- 	
- 	
- 	
-</script>
-</head>
-<body>
+		alert(event_test + ' "next 버튼을 눌러주세요"');
+	} 	
+	</script>
+	</head>
+	<body>
+		<%
+			DSHinfoVO ivo = (DSHinfoVO)session.getAttribute("ivo");
+		%>
     	
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- 네비게이션 바 시작 -->
-		<header class="header-style fixed-top">
+		<header style="padding:0 !important;" "class="header-style fixed-top">
 			<div class="container">
 				<div class="header d-lg-flex justify-content-between align-items-center">
 					
@@ -111,15 +108,15 @@
 					<!-- 네비게이션 바 로고 끝 -->
 					
 					<!-- 네비게이션 바 -->
-					<div class="nav_w3ls" style="height: 100px;">
-						<nav>
+					<div class="dshnav_w3ls" style="height: 100px;">
+						<nav style="padding-top:60px;" class="dshnav">
 							<label for="drop" class="toggle toogle-2">Menu</label>
 							<input type="checkbox" id="drop"/>
 							<ul class="menu">
-								<li><a href="#banner" class="smooth-scroll">HOME</a></li>
-								<li><a href="#testi" class="smooth-scroll">소개글</a></li>
-								<li><a href="#video-intro" class="smooth-scroll">시연영상</a></li>
-								<li><a href="#services" class="smooth-scroll">기능소개</a></li>
+								<li><a href="DamHome.jsp" class="smooth-scroll">HOME</a></li>
+								<li><a href="DamHome.jsp#testi" class="smooth-scroll"></a></li>
+								<li><a href="DamHome.jsp#video-intro" class="smooth-scroll"></a></li>
+								<li><a href="DamHome.jsp#services" class="smooth-scroll"></a></li>
 								
 								<li>
 									<!-- First Tier Drop Down
@@ -137,7 +134,11 @@
 								
 								<li><a href="DamOrder.jsp">주문하기</a></li>
 								<li><a href="DamStatistics.jsp">통계</a></li>
+							<%if(ivo!=null) { %>
+								<li><a href="DamHome.jsp">로그아웃</a></li>
+							<%}else { %>
 								<li><a href="DamLogin.jsp">로그인</a></li>
+							<%} %>
 							</ul>
 						</nav>
 					</div>
@@ -146,36 +147,18 @@
 			</div>
 		</header>
 		<!-- 네비게이션 바 끝 -->
-		
+		<div class="limit">
 		<header>
-            <h1>설문하기</h1>
-            <!-- <legend>알맞은 담소화 찾기</legend> -->
-            <nav>
-                <ul>
-                    <li>알맞은 담소화 찾기</li>
-                </ul>
-            </nav>
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">설문하기</h2>
+                </div>
+            </div>
         </header>
 
         <div class="content">
         <!-- 드랍다운 메뉴 시작 -->
-                        <div class="form-row">
-                            <div class="name">키우고 싶은 종류</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected="selected">종류 선택</option>
-                                            <option>꽃</option>
-                                            <option>열매</option>
-                                            <option>기타</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 드랍다운 메뉴 끝 -->
+        <!-- 드랍다운 메뉴 끝 -->
         	<h1></h1>
 
             <script>
@@ -187,9 +170,14 @@
                         transitionEffect: "slideLeft"
                     });
                 });
+                
+                $.fn.steps.defaults.onFinished = function (event, currentIndex) {
+                	$(location).attr("href", "DamOrder_done.jsp");
+                }
+                
             </script>
 
-            <div id="wizard">
+            <div class="wizard" id="wizard">
                 <h2>화분찾기</h2>
                 
                 <section>
@@ -201,15 +189,15 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">꽃
-                                    <input type="radio" name="radio1" value="꽃" <%flora=+1; %>>
+                                    <input type="radio" name="radio1" value="꽃" <%flora+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">열매
-                                    <input type="radio" name="radio1" value="열매" <%crop=+1; %>>
+                                    <input type="radio" name="radio1" value="열매" <%crop+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">기타
-                                    <input type="radio" name="radio1" value="기타" <%glue=+1; %>>
+                                    <input type="radio" name="radio1" value="기타" <%glue+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -223,11 +211,11 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">시원
-                                    <input type="radio" name="radio2" value="시원" <%glue=+1; %>>
+                                    <input type="radio" name="radio2" value="시원" <%glue+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">따뜻
-                                    <input type="radio" name="radio2" value="따뜻" <%flora=+1; %><%crop=+1; %>>
+                                    <input type="radio" name="radio2" value="따뜻" <%flora+=1; %><%crop+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -241,11 +229,11 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">잘 돌본다
-                                    <input type="radio" name="radio3" value="잘한다" <%flora=+1; %><%crop=+1; %>>
+                                    <input type="radio" name="radio3" value="잘한다" <%flora+=1; %><%crop+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">잘 못 돌본다
-                                    <input type="radio" name="radio3" value="못한다" <%glue=+1; %>>
+                                    <input type="radio" name="radio3" value="못한다" <%glue+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -259,19 +247,19 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">꽃
-                                    <input type="radio" name="radio4" value="꽃" <%flora=+1; %>>
+                                    <input type="radio" name="radio4" value="꽃" <%flora+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">열매
-                                    <input type="radio" name="radio4" value="열매" <%crop=+1; %>>
+                                    <input type="radio" name="radio4" value="열매" <%crop+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">허브
-                                    <input type="radio" name="radio4" value="허브" <%glue=+1; %>>
+                                    <input type="radio" name="radio4" value="허브" <%glue+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">나무
-                                    <input type="radio" name="radio4" value="나무" <%glue=+1; %>>
+                                    <input type="radio" name="radio4" value="나무" <%glue+=1; %>> <!-- 자바스크립트로 선택되는 값 계산하여 결과내기 -->
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -308,18 +296,17 @@
 							<div class="dsh-order-card">
 								<div class="dshcard-body">
 									<div class="clearfix">
-										<div style="width: 120px; height: 90px; overflow: hidden">
-    										<img id="plant1" src=<%=plant1img%> style="width: 120px; height: auto;">
+										<div style="text-align: center;">
+    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant1" src=<%=plant1img%>>
+											<h3 id="label1"><%=plant1txt%></h3><br>
 										</div>
-										<h6 id="label1"><%=plant1txt%></h6>
 									</div>
 									<div class="b-b-1 pt-3"></div>
 									<hr class="dshhr">
-									<div class="more-info pt-2" style="margin-bottom: -10px;">
-										<span class="font-weight-bold font-xs btn-block text-muted small">
+									<div class="more-info pt-2"><br>
 											<button type="button"
-												class="dshbtn btn-outline-primary dshbtn-lg dshbtn-block" id="btnSelect1" name="btnSelect1" value=<%=plant1txt%> onClick="checkRow(this.value);">선택하기</button>
-											<i class="fa fa-angle-right float-right font-lg"></i></span>
+												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect1" name="btnSelect1" value=<%=plant1txt%> onClick="checkRow(this.value);">
+												선택하기</button><br>
 									</div>
 								</div>
 							</div>
@@ -328,18 +315,17 @@
 							<div class="dsh-order-card">
 								<div class="dshcard-body">
 									<div class="clearfix">
-										<div style="width: 120px; height: 90px; overflow: hidden">
-    										<img id="plant2" src=<%=plant2img%> style="width: 120px; height: auto;">
+										<div style="text-align: center;">
+    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant2" src=<%=plant2img%>>
+											<h3 id="label2"><%=plant2txt%></h3><br>
 										</div>
-										<h6 id="label2"><%=plant2txt%></h6>
 									</div>
 									<div class="b-b-1 pt-3"></div>
 									<hr class="dshhr">
-									<div class="more-info pt-2" style="margin-bottom: -10px;">
-										<span class="font-weight-bold font-xs btn-block text-muted small">
+									<div class="more-info pt-2"><br>
 											<button type="button"
-												class="dshbtn btn-outline-primary dshbtn-lg dshbtn-block" id="btnSelect2" name="btnSelect2" value=<%=plant2txt%> onClick="checkRow(this.value);">선택하기</button>
-											<i class="fa fa-angle-right float-right font-lg"></i></span>
+												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect2" name="btnSelect2" value=<%=plant2txt%> onClick="checkRow(this.value);">
+												선택하기</button><br>
 									</div>
 								</div>
 							</div>
@@ -361,7 +347,7 @@
                                 	<% for(int i=1; i<=24; i++) {%>
                                 	<option value="<%=i%>"><%=i+"시"%></option>
                                 	<%}%>
-                                </select>
+                                </select><br><br>
                                 
                                 <select id="sleepH" name="sleepH">
                                 	<option value="">취침시간</option>
@@ -417,7 +403,7 @@
 
                         	<div id="mediTime1" style="display:none">
                         	
-                        		<div class="form-row p-t-20">
+                        		
                             	<label class="label label--block">복용시간을 선택해 주세요</label>
                            		<div class="p-t-15">
                                 	<select  id="takeMediAP1" name="takeMediAP1" >
@@ -442,7 +428,6 @@
                                 	<%}%>
                                 	</select>
                               </div>
-                        	  </div>
                           </div>
                           
                           <div id="mediTime2" style="display:none">
@@ -500,9 +485,10 @@
                                 	<%}%>
                                 	</select>
                               </div>
-                        	  <!-- </div> -->
                           </div>
-                          <input type="button" value="확인" onclick="memberRootin(); return false;">
+                          <br><br>
+                          <input class="btn-done btn-outline-pr dshbtn-done dshbtn-block" type="button" value="입력" onclick="memberRootin(); return false;">
+                          
                         </form>
 						<!-- 스크립트 시작 -->
 						<script>
@@ -531,28 +517,7 @@
 								document.getElementById(id).style.display = "";
 							}
 						}
-						
-						function memberRootin(){
-					        var formData = $("#form1").serialize();
-
-					        $.ajax({
-					            cache : false,
-					            url : "${pageContext.request.contextPath}/MemberInfo", // 요기에
-					            type : 'POST', 
-					            data : formData, 
-					            success : function(data) {
-					                var jsonObj = JSON.parse(data);
-					            }, // success 
-					    
-					            error : function(xhr, status) {
-					                alert(xhr + " : " + status);
-					            }
-					        }); // $.ajax */
-					    }
 						</script>
-					
-						
-					
                 </section>
 
                 <h2>주문하기</h2>
@@ -562,39 +527,35 @@
                 
                 <!-- 선택 담소화 이미지 -->
 					
-                <div class="dshplant">
-                    <input style="width:30px;height:30px;border:1px;" type="radio" id="damsohwa" name="damsohwa" value="" onload='printPlant()'>("선택한 화분이 맞으면, 클릭해 주세요")</input>
-                </div>
+                <div class="dshplant label">
+                    <input style="width:100%;height:30px;border:1px;" type="hidden" id="damsohwa" name="damsohwa" value=" "><label id="plant"></label>
+                </div><br><br>
 				<!-- /선택 담소화 이미지 -->
 				
                 <%
                 	Calendar cal = Calendar.getInstance();
                 %>
-				<div class="form-row m-b-55">
+				<div class="label">
 					<div class="">담소화의 생일은 <%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>  (<%=cal.get(Calendar.MONTH)+1%>월 <%=cal.get(Calendar.DATE)%>일) 입니다.</div>
-					<div class="value">
-					</div>
-				</div>
-				
+					<br>
 					<div class="">벗의 생일은 언제인가요? (예: 0101 _ 월일을 4자리 숫자로 입력해주세요)</div>
-					<div class="value">
+				</div>
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" name="birth" id='birth' onkeyup='printName()'/>
-									<button onclick="onDisplay()" type="button"
-												class="dshbtn btn-outline-warning dshbtn-lg dshbtn-block" name="btnSelect" onclick="div_id(this.value,'medi');">확인</button>
-							</div>
+								<div class="wrap-input100 validate-input">
+								<span>
+									<input style="border: none !important;" class="input100" type="text" name="birth" id='birth' maxlength="4" onkeyup='printName(this)'/></span>
+								</div>
 						</div>
 					</div>
-				</div>
 				
-				<div class="form-row m-b-55">
 				<div class="" id="noneDiv" style="display:none;">
-					<div class="name">일련번호</div>
-					<div id='result'></div><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>
-					<span> </span>
-					<br>
+					<div class="dsh-serial">
+					<div class="name">[ 일련번호 ]</div><br>
+					<div style="font-size: 20px; font-weight: 700;">
+					<span id='result'></span><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>
+					</div>
+					<br><br>
 					<div> 로그인 가능한 일련번호 입니다.(수정불가)</div>
 					<div class="value">
 						<div class="row row-space">
@@ -604,16 +565,16 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				</div>
+					</div>
+				</div><br><br>
 
 				<div class="form-row m-b-55">
 					<div class="name">성함</div>
 					<div class="value">
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" id="user" name="user">
+								<div class="wrap-input100 validate-input input-group-desc">
+									<input style="border: none !important;" class="input100" type="text" id="user" name="user">
 								</div>
 							</div>
 						</div>
@@ -625,8 +586,8 @@
 					<div class="value">
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" id="tel" name="tel">
+								<div class="wrap-input100 validate-input input-group-desc">
+									<input style="border: none !important;" class="input100" type="text" id="tel" name="tel">
 								</div>
 							</div>
 						</div>
@@ -638,41 +599,57 @@
 					<div class="value">
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" id="addr" name="addr">
+								<div class="wrap-input100 validate-input input-group-desc">
+									<input style="border: none !important;" class="input100" type="text" id="addr" name="addr">
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<input type="button" value="확인" onclick="memberOrder(); return false;">
+				<input class="btn-done btn-outline-pr dshbtn-done dshbtn-block" type="button" value="입력" onclick="memberOrder(); return false;">
 			</form>
 					<script>
 					$('#damsohwa').on('change', function(){
 						$('#damsohwa1').html($('#damsohwa').val());
 					});
 					
-					function printPlant()  {
-						  const plant = document.getElementById('damsohwa').value;
-						  document.getElementById("plant").innerText = plant;
-					}
 					
-					function onDisplay() {
-					     $('#noneDiv').show();
+					function printName(textbox)  {
+						const birth = document.getElementById('birth').value;
+						if(textbox.value.length == 4) {
+							$('#noneDiv').show();
+							document.getElementById("result").innerText = birth;
+							document.getElementById("user").focus();
+						}
 					}
-					function printName()  {
-						  const birth = document.getElementById('birth').value;
-						  document.getElementById("result").innerText = birth;
-					}
-					
-					function memberOrder(){
-				        var formData = $("#form2").serialize();
+						  
+					$.fn.steps.defaults.onFinished = function (event, currentIndex) {
+	                	var formData1 = $("#form1").serialize();
+
+				        $.ajax({
+				            cache : false,
+				            url : "${pageContext.request.contextPath}/MemberInfo", // 요기에
+				            type : 'POST', 
+				            data : formData1, 
+				            dataType: "json",
+				            success : function(data) {
+				                var jsonObj = JSON.parse(data);
+				                sessionStorage.setItem('info',data);
+				            }, // success 
+				    
+				            error : function(xhr, status) {
+				                alert(xhr + " : " + status);
+				            }
+				        }); // $.ajax */
+				        
+				        var formData2 = $("#form2").serialize();
 
 				        $.ajax({
 				            cache : false,
 				            url : "${pageContext.request.contextPath}/NewMember", // 요기에
 				            type : 'POST', 
-				            data : formData, 
+				            data : formData2, 
+				            dataType: "json",
 				            success : function(data) {
 				                var jsonObj = JSON.parse(data);
 				            }, // success 
@@ -681,11 +658,52 @@
 				                alert(xhr + " : " + status);
 				            }
 				        }); // $.ajax */
-				    }
+				        
+	                	$(location).attr("href", "DamOrder_done.jsp");
+	                }
 					</script>
 			
 			</section>
             </div>
+            <!-- footer -->
+		<footer class="text-center">
+			<div class="container py-xl-5" style="background-image: url(images/flowerbg.jpg) no-repeat bottom;">
+			
+				<div class="w3l-copy text-center">
+					<p class="text-da">건강한 당신의 삶을 응원합니다.</p><br>
+					<div class="contact-left-footer">
+					<ul>
+					<li>
+						<p>
+							<i class="fa fa-map-marker mr-2"></i>광주광역시 남구 송암로 60
+						</p>
+					</li>
+					<li class="mx-4">
+						<p>
+							<i class="fa fa-phone mr-2"></i>062-655-3509
+						</p>
+					</li>
+					<li>
+						<p class="text-wh">
+							<i class="fa fa-envelope-open mr-2"></i>
+							<a href="mailto:info@example.com">Damsohwa@gmail.com</a>
+						</p>
+					</li>
+					</ul>
+					</div>
+				</div><br>
+				<!-- //address -->
+			
+				<!-- copyright -->
+				<div class="w3l-copy text-center">
+				<p class="text-da">© 2021 Damsohwa. All rights reserved.
+				</p>
+				</div>
+				<!-- //copyright -->
+			</div>
+		</footer>
+		<!-- //footer -->
+        </div>
         </div>
     </body>
 </html>

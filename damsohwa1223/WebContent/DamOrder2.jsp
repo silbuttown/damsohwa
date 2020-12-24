@@ -1,3 +1,4 @@
+<%@page import="DSHModel.DSHinfoVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*, java.text.*" %>
@@ -14,7 +15,7 @@
     <meta name="keywords" content="Colorlib Templates">
     
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title>주문하기</title>
     <script type="text/javascript">
     function trans(){
     	document.g
@@ -29,26 +30,30 @@
 	<!-- banner slider -->
 	<link rel="stylesheet" href="css/style3.css" type="text/css" media="all" />
 	<!-- Style-CSS -->
-	<link rel="stylesheet" type="text/css" href="css/style4.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/style4.css"> -->
+	
 
     <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+   <!--  <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"> -->
+    <!-- <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all"> -->
     <!-- Font special for pages-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     
 
     <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <!-- <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all"> -->
+    <!-- <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all"> -->
 
     <!-- Main CSS-->
     <link href="css/main3.css" rel="stylesheet" media="all">
     
     <link rel="stylesheet" href="dsh/dshjumoon.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css?1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
     
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>jQeury.steps Demos</title>
+        <!-- jquery slide -->
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css/normalize.css">
@@ -59,42 +64,80 @@
         <script src="lib/jquery.cookie-1.3.1.js"></script>
         <script src="build/jquery.steps.js"></script>
         
-        <style>
-    
-    	legend{
-    		color: blue;
-    		font-size: 25px;
-    		}
-    	</style>
-    
     <script type="text/javascript" src="<c:url value="script/jquery-3.2.1.min.js"/>"></script>
-    </head>
-    <body>
+	
+	<script>
+	<%int flora = 0;
+	int crop = 0;
+	int glue = 0;
+	String plant = "";
+	String plant1txt = "";
+	String plant2txt = "";
+	String plant1img = "";
+	String plant2img = "";
+	%>
+ 	
+ 	function checkRow(event) {
+ 		//document.getElementById('damsohwa').innerHTML = event + document.getElementById('damsohwa').innerHTML;
+		document.getElementById('damsohwa').value = event;
+		document.getElementById("plant").innerText = event;
+		var event_test = event;
+		alert(event_test + ' "next 버튼을 눌러주세요"');
+	} 	
+	</script>
+	</head>
+	<body>
+		<%
+			DSHinfoVO ivo = (DSHinfoVO)session.getAttribute("ivo");
+		%>
     	
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <!-- 네비게이션 바 시작 -->
-		<header class="header-style fixed-top">
+		<header style="padding:0 !important;" "class="header-style fixed-top">
 			<div class="container">
 				<div class="header d-lg-flex justify-content-between align-items-center">
 					
 					<!-- 네비게이션 바 로고 -->
-					<h1 class="logo text-center">
-						<img src="images/damsohwaLogo.png" alt="My Image" width="30" height="50" style = "padding:10">
+					<h1 class="logo text-center" class="fa fa-pagelines" aria-hidden="true">
+						<a href="DamHome.jsp"><img src="images/damsohwaLogo.png" alt="My Image" width="80" height="110" style = "padding:1;"></a>
 					</h1>
 					<!-- 네비게이션 바 로고 끝 -->
 					
 					<!-- 네비게이션 바 -->
-					<div class="nav_w3ls">
-						<nav>
+					<div class="dshnav_w3ls" style="height: 100px;">
+						<nav style="padding-top:60px;" class="dshnav">
 							<label for="drop" class="toggle toogle-2">Menu</label>
-							<input type="checkbox" id="drop" />
+							<input type="checkbox" id="drop"/>
 							<ul class="menu">
-								<li><a href="#banner" class="smooth-scroll">HOME</a></li>
+								<li><a href="DamHome.jsp" class="smooth-scroll">HOME</a></li>
+								<li><a href="DamHome.jsp#testi" class="smooth-scroll"></a></li>
+								<li><a href="DamHome.jsp#video-intro" class="smooth-scroll"></a></li>
+								<li><a href="DamHome.jsp#services" class="smooth-scroll"></a></li>
+								
+								<li>
+									<!-- First Tier Drop Down
+									<label for="drop-2" class="toggle toggle-drop">Pages <span class="fa fa-angle-down" aria-hidden="true"></span>
+									</label>
+									<a href="#">Pages <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+									<input type="checkbox" id="drop-2" />
+									<ul class="list-unstyled">
+										<li><a href="#why" class="drop-text">Why Choose Us</a></li>
+										<li class="my-2"><a href="#partners" class="drop-text">Our Partners</a></li>
+										<li><a href="#testi" class="drop-text">Testimonials</a></li>
+									</ul> -->
+								</li>
+								
+								
 								<li><a href="DamOrder.jsp">주문하기</a></li>
-								<li><a href="DamLogin.jsp">로그아웃</a></li>
+								<li><a href="DamStatistics.jsp">통계</a></li>
+							<%if(ivo!=null) { %>
+								<li><a href="DamHome.jsp">로그아웃</a></li>
+							<%}else { %>
+								<li><a href="DamLogin.jsp">로그인</a></li>
+							<%} %>
 							</ul>
 						</nav>
 					</div>
@@ -105,37 +148,17 @@
 		<!-- 네비게이션 바 끝 -->
 		
 		<header>
-            <h1>Wizard Demo</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">알맞은</a></li>
-                    <li><a href="vertical.html">담소화</a></li>
-                    <li><a href="tabs.html">찾기</a></li>
-                </ul>
-            </nav>
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">설문하기</h2>
+                </div>
+            </div>
         </header>
 
         <div class="content">
         <!-- 드랍다운 메뉴 시작 -->
-                        <div class="form-row">
-                            <div class="name">키우고 싶은 종류</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected="selected">종류 선택</option>
-                                            <option>꽃</option>
-                                            <option>열매</option>
-                                            <option>기타</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 드랍다운 메뉴 끝 -->
+        <!-- 드랍다운 메뉴 끝 -->
         	<h1></h1>
-            <!-- <legend>알맞은 담소화 찾기</legend> -->
 
             <script>
                 $(function ()
@@ -150,244 +173,156 @@
 
             <div id="wizard">
                 <h2>화분찾기</h2>
+                
                 <section>
                         <div class="form-row p-t-20">
-                            <label class="label label--block">식물 키우는 목적</label>
+                            <label class="label label--block">키우고 싶은 종류</label>
                             <div> <!-- class="p-t-15" -->
-                                <label class="radio-container m-r-55">관상용
-                                    <input type="radio" checked="checked" name="radio1" value="관상용">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">공기정화
-                                    <input type="radio" name="radio1" value="공기정화">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">식용
-                                    <input type="radio" name="radio1" value="식용">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row p-t-20">
-                            <label class="label label--block">좋아하는 식물 종류</label>
-                            <div>
-                                <label class="radio-container m-r-55">나무 <!-- 외목대 스타일의 화분 추천 -->
-                                    <input type="radio" checked="checked" name="radio2" value="나무">
+                            	<label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="radio1">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">꽃
-                                    <input type="radio" name="radio2" value="꽃">
+                                    <input type="radio" name="radio1" value="꽃" <%flora+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">열매
-                                    <input type="radio" name="radio2" value="열매">
+                                    <input type="radio" name="radio1" value="열매" <%crop+=1; %>>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">기타
+                                    <input type="radio" name="radio1" value="기타" <%glue+=1; %>>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">좋아하는 온도</label>
+                            <div>
+                                <label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="radio2">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">시원
+                                    <input type="radio" name="radio2" value="시원" <%glue+=1; %>>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">따뜻
+                                    <input type="radio" name="radio2" value="따뜻" <%flora+=1; %><%crop+=1; %>>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">식물을 잘 키우나요 ?</label>
+                            <div>
+                                <label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="radio3">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">잘 돌본다
+                                    <input type="radio" name="radio3" value="잘한다" <%flora+=1; %><%crop+=1; %>>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">잘 못 돌본다
+                                    <input type="radio" name="radio3" value="못한다" <%glue+=1; %>>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">좋아하는 종류</label>
+                            <div>
+                                <label class="radio-container m-r-55">
+                                    <input type="radio" checked="checked" name="radio4">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">꽃
+                                    <input type="radio" name="radio4" value="꽃" <%flora+=1; %>>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container m-r-55">열매
+                                    <input type="radio" name="radio4" value="열매" <%crop+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">허브
-                                    <input type="radio" name="radio2" value="허브">
+                                    <input type="radio" name="radio4" value="허브" <%glue+=1; %>>
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="radio-container m-r-55">작물
-                                    <input type="radio" name="radio2" value="작물">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row p-t-20">
-                            <label class="label label--block">좋아하는 색상</label>
-                            <div>
-                                <label class="radio-container m-r-55">빨강
-                                    <input type="radio" checked="checked" name="radio3" value="빨강">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">주황
-                                    <input type="radio" name="radio3" value="주황">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">노랑
-                                    <input type="radio" name="radio3" value="노랑">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">초록
-                                    <input type="radio" name="radio3" value="초록">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">파랑
-                                    <input type="radio" name="radio3" value="파랑">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">남색
-                                    <input type="radio" name="radio3" value="남색">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">보라
-                                    <input type="radio" name="radio3" value="보라">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">하얗
-                                    <input type="radio" name="radio3" value="하얗">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">검정
-                                    <input type="radio" name="radio3" value="검정">
+                                <label class="radio-container m-r-55">나무
+                                    <input type="radio" name="radio4" value="나무" <%glue+=1; %>> <!-- 자바스크립트로 선택되는 값 계산하여 결과내기 -->
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                         </div>
-                        
-                        <div class="form-row p-t-20">
-                            <label class="label label--block">좋아하는 맛</label>
-                            <div>
-                                <label class="radio-container m-r-55">고소함
-                                    <input type="radio" checked="checked" name="radio4" value="고소함">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">달콤함
-                                    <input type="radio" name="radio4" value="달콤함">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">새콤함
-                                    <input type="radio" name="radio4" value="새콤함">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">매움
-                                    <input type="radio" name="radio4" value="매움">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">단백함
-                                    <input type="radio" name="radio4" value="담백함">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <!-- 환경 선택 -->
-                        <div class="form-row p-t-20">
-                            <label class="label label--block">현재 지내는 곳의 환경 1</label>
-                            <div>
-                                <label class="radio-container m-r-55">비교적 춥다
-                                    <input type="radio" checked="checked" name="radio5" value="비교적 춥다">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">비교적 덥다
-                                    <input type="radio" name="radio5" value="비교적 덥다">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row p-t-20">
-                            <label class="label label--block">현재 지내는 곳의 환경 2</label>
-                            <div>
-                                <label class="radio-container m-r-55">습하다
-                                    <input type="radio" checked="checked" name="radio6" value="습하다">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">건조하다
-                                    <input type="radio" name="radio6" value="건조하다">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
+                <%
+             	//flora 1 수국  2 장미허브
+             	//crop  1 방울토마토  2 상추
+                if((flora>crop) && (flora>glue)) {
+                	plant = "flora";
+                	plant1txt = "수국";
+                	plant1img = "images/flor1.png";
+                	plant2txt = "장미허브";
+                	plant2img = "images/flor2.png";
+            	}else if((crop>flora) && (crop>glue)) {
+            		plant = "crop";
+            		plant1txt = "방울토마토";
+            		plant1img = "images/crop1.jpg";
+                	plant2txt = "상추";
+                	plant2img = "images/crop2.png";
+                	
+            	}else {
+            		plant = "glue";
+            		plant1txt = "장미허브";
+            		plant1img = "images/flor2.png";
+                	plant2txt = "방울토마토";
+                	plant2img = "images/crop1.png";
+            	} %>
                 </section>
 
                 <h2>화분선택</h2> <!-- 테스트용. 서블릿에서 데이터 받아오도록 변형 예정/ 화분 4step로 넘기기 -->
                 <section>
-				<div class="dshselect">
-					<div class="dshcol-6 col-lg-3">
-						<div class="container">
+				<div class="dshselect flex-container">
+					<div class="flex-item">
 							<div class="dsh-order-card">
 								<div class="dshcard-body">
 									<div class="clearfix">
-										<i class="fa fa-cogs bg-flat-color-5 p-3 font-2xl mr-3 float-left text-light"></i>
-											<img src="img/dongbag.jpg"/>
-										<div class="text-muted text-uppercase font-weight-bold font-xs small">블랙로즈 동백</div>
+										<div style="text-align: center;">
+    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant1" src=<%=plant1img%>>
+											<h3 id="label1"><%=plant1txt%></h3><br>
+										</div>
 									</div>
 									<div class="b-b-1 pt-3"></div>
 									<hr class="dshhr">
-									<div class="more-info pt-2" style="margin-bottom: -10px;">
-										<a class="font-weight-bold font-xs btn-block text-muted small"
-											href="#"><button type="button"
-												class="dshbtn btn-outline-primary dshbtn-lg dshbtn-block" name="btnSelect" value="블랙로즈 동백">선택하기</button>
-											<i class="fa fa-angle-right float-right font-lg"></i></a>
+									<div class="more-info pt-2"><br>
+											<button type="button"
+												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect1" name="btnSelect1" value=<%=plant1txt%> onClick="checkRow(this.value);">
+												선택하기</button><br>
 									</div>
 								</div>
 							</div>
-						</div>
 					</div>
-					<!--/.col-->
-					<div class="dshcol-6 col-lg-3">
-						<div class="container">
+					<div class="flex-item">
 							<div class="dsh-order-card">
 								<div class="dshcard-body">
 									<div class="clearfix">
-										<i
-											class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left text-light"></i>
-										<div class="h5 text-secondary mb-0 mt-1">추천 담소화 이미지</div>
-										<div
-											class="text-muted text-uppercase font-weight-bold font-xs small">포인세티아</div>
+										<div style="text-align: center;">
+    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant2" src=<%=plant2img%>>
+											<h3 id="label2"><%=plant2txt%></h3><br>
+										</div>
 									</div>
 									<div class="b-b-1 pt-3"></div>
 									<hr class="dshhr">
-									<div class="more-info pt-2" style="margin-bottom: -10px;">
-										<a class="font-weight-bold font-xs btn-block text-muted small"
-											href="#"><button type="button"
-												class="dshbtn btn-outline-secondary dshbtn-lg dshbtn-block" name="btnSelect" value="포인세티아">선택하기</button>
-											<i class="fa fa-angle-right float-right font-lg"></i></a>
+									<div class="more-info pt-2"><br>
+											<button type="button"
+												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect2" name="btnSelect2" value=<%=plant2txt%> onClick="checkRow(this.value);">
+												선택하기</button><br>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<!--/.col-->
-					<div class="dshcol-6 col-lg-3">
-						<div class="container">
-							<div class="dsh-order-card">
-								<div class="dshcard-body">
-									<div class="clearfix">
-										<i
-											class="fa fa-moon-o bg-warning p-3 font-2xl mr-3 float-left text-light"></i>
-										<div class="h5 text-secondary mb-0 mt-1">추천 담소화 이미지</div>
-										<div
-											class="text-muted text-uppercase font-weight-bold font-xs small">블루베리</div>
-									</div>
-									<div class="b-b-1 pt-3"></div>
-									<hr class="dshhr">
-									<div class="more-info pt-2" style="margin-bottom: -10px;">
-										<a class="font-weight-bold font-xs btn-block text-muted small"
-											href="#"><button type="button"
-												class="dshbtn btn-outline-warning dshbtn-lg dshbtn-block" name="btnSelect" value="블루베리">선택하기</button>
-											<i class="fa fa-angle-right float-right font-lg"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--/.col-->
-					<div class="dshcol-6 col-lg-3">
-						<div class="container">
-							<div class="dsh-order-card">
-								<div class="dshcard-body">
-									<div class="clearfix">
-										<i
-											class="fa fa-bell bg-danger p-3 font-2xl mr-3 float-left text-light"></i>
-										<div class="h5 text-secondary mb-0 mt-1">추천 담소화 이미지</div>
-										<div
-											class="text-muted text-uppercase font-weight-bold font-xs small">장미</div>
-									</div>
-									<div class="b-b-1 pt-3"></div>
-									<hr class="dshhr">
-									<div class="more-info pt-2" style="margin-bottom: -10px;">
-										<a class="font-weight-bold font-xs btn-block text-muted small"
-											href="#"><button type="button"
-												class="dshbtn btn-outline-danger dshbtn-lg dshbtn-block" name="btnSelect" value="장미">선택하기</button>
-											<i class="fa fa-angle-right float-right font-lg"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</section>
@@ -396,7 +331,7 @@
                 <section>
                     <!--  화분선택 후 화면 -->
                     
-                    <form method="get" action="MemberInfo">
+                    <form id="form1" name="form1" method="post">
                         <div class="form-row p-t-20">
                             <label class="label label--block">수면시간</label>
                             <div class="p-t-15">
@@ -406,7 +341,7 @@
                                 	<% for(int i=1; i<=24; i++) {%>
                                 	<option value="<%=i%>"><%=i+"시"%></option>
                                 	<%}%>
-                                </select>
+                                </select><br><br>
                                 
                                 <select id="sleepH" name="sleepH">
                                 	<option value="">취침시간</option>
@@ -462,7 +397,7 @@
 
                         	<div id="mediTime1" style="display:none">
                         	
-                        		<div class="form-row p-t-20">
+                        		
                             	<label class="label label--block">복용시간을 선택해 주세요</label>
                            		<div class="p-t-15">
                                 	<select  id="takeMediAP1" name="takeMediAP1" >
@@ -487,7 +422,6 @@
                                 	<%}%>
                                 	</select>
                               </div>
-                        	  </div>
                           </div>
                           
                           <div id="mediTime2" style="display:none">
@@ -545,9 +479,10 @@
                                 	<%}%>
                                 	</select>
                               </div>
-                        	  <!-- </div> -->
                           </div>
-                          <input type="submit" value="enter" style="float:left; margin-left:50px;">
+                          <br><br>
+                          <input class="btn-done btn-outline-pr dshbtn-done dshbtn-block" type="button" value="입력" onclick="memberRootin(); return false;">
+                          
                         </form>
 						<!-- 스크립트 시작 -->
 						<script>
@@ -577,48 +512,44 @@
 							}
 						}
 						</script>
-					
-						
-					
                 </section>
 
                 <h2>주문하기</h2>
                 <section>
+                
+                <form id="form2" name="form2" method="post">
+                
                 <!-- 선택 담소화 이미지 -->
-                <div id="damsohwa" name="damsohwa">장미허브</div>
+					
+                <div class="dshplant label">
+                    <input style="width:100%;height:30px;border:1px;" type="hidden" id="damsohwa" name="damsohwa" value=" "><label id="plant"></label>
+                </div><br><br>
 				<!-- /선택 담소화 이미지 -->
 				
-                <form method="get" action="NewMember" >
                 <%
                 	Calendar cal = Calendar.getInstance();
                 %>
-				<div class="form-row p-t-20">
+				<div class="label">
 					<div class="">담소화의 생일은 <%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>  (<%=cal.get(Calendar.MONTH)+1%>월 <%=cal.get(Calendar.DATE)%>일) 입니다.</div>
-					<div class="value">
-					</div>
-				</div>
-				
-						<div class="form-row m-b-55">
+					<br>
 					<div class="">벗의 생일은 언제인가요? (예: 0101 _ 월일을 4자리 숫자로 입력해주세요)</div>
-					<div class="value">
+				</div>
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" name="birth" id='birth' onkeyup='printName()'/>
-									<button onclick="onDisplay()" type="button"
-												class="dshbtn btn-outline-warning dshbtn-lg dshbtn-block" name="btnSelect" onclick="div_id(this.value,'medi');">확인</button>
+								<div class="wrap-input100 validate-input">
+								<span>
+									<input style="border: none !important;" class="input100" type="text" name="birth" id='birth' maxlength="4" onkeyup='printName(this)'/></span>
 								</div>
-							</div>
 						</div>
 					</div>
-				</div>
 				
-				<div class="form-row m-b-55">
 				<div class="" id="noneDiv" style="display:none;">
-					<div class="name">일련번호</div>
-					<div id='result'></div><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>
-					<span> </span>
-					<br>
+					<div class="dsh-serial">
+					<div class="name">[ 일련번호 ]</div><br>
+					<div style="font-size: 20px; font-weight: 700;">
+					<span id='result'></span><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%>
+					</div>
+					<br><br>
 					<div> 로그인 가능한 일련번호 입니다.(수정불가)</div>
 					<div class="value">
 						<div class="row row-space">
@@ -628,16 +559,16 @@
 							</div>
 						</div>
 					</div>
-				</div>
-				</div>
+					</div>
+				</div><br><br>
 
 				<div class="form-row m-b-55">
 					<div class="name">성함</div>
 					<div class="value">
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" id="user" name="user">
+								<div class="wrap-input100 validate-input input-group-desc">
+									<input style="border: none !important;" class="input100" type="text" id="user" name="user">
 								</div>
 							</div>
 						</div>
@@ -649,8 +580,8 @@
 					<div class="value">
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" id="tel" name="tel">
+								<div class="wrap-input100 validate-input input-group-desc">
+									<input style="border: none !important;" class="input100" type="text" id="tel" name="tel">
 								</div>
 							</div>
 						</div>
@@ -662,25 +593,74 @@
 					<div class="value">
 						<div class="row row-space">
 							<div class="col-2">
-								<div class="input-group-desc">
-									<input class="input--style-5" type="text" id="addr" name="addr">
+								<div class="wrap-input100 validate-input input-group-desc">
+									<input style="border: none !important;" class="input100" type="text" id="addr" name="addr">
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<input class="btn-done btn-outline-pr dshbtn-done dshbtn-block" type="button" value="입력" onclick="memberOrder(); return false;">
+			</form>
 					<script>
-					function onDisplay() {
-					     $('#noneDiv').show();
+					$('#damsohwa').on('change', function(){
+						$('#damsohwa1').html($('#damsohwa').val());
+					});
+					
+					
+					
+					
+					function printName(textbox)  {
+						const birth = document.getElementById('birth').value;
+						if(textbox.value.length == 4) {
+							$('#noneDiv').show();
+							document.getElementById("result").innerText = birth;
+							document.getElementById("user").focus();
+						}
 					}
 					
-					function printName()  {
-						  const birth = document.getElementById('birth').value;
-						  document.getElementById("result").innerText = birth;
-					}
+					 
+	                $.fn.steps.defaults.onFinished = function (event, currentIndex) {
+	                	var formData1 = $("#form1").serialize();
+
+				        $.ajax({
+				            cache : false,
+				            url : "${pageContext.request.contextPath}/MemberInfo", // 요기에
+				            type : 'POST', 
+				            data : formData1, 
+				            dataType: "json",
+				            success : function(data) {
+				                var jsonObj = JSON.parse(data);
+				                sessionStorage.setItem('info',data);
+				            }, // success 
+				    
+				            error : function(xhr, status) {
+				                alert(xhr + " : " + status);
+				            }
+				        }); // $.ajax */
+				        
+				        var formData2 = $("#form2").serialize();
+
+				        $.ajax({
+				            cache : false,
+				            url : "${pageContext.request.contextPath}/NewMember", // 요기에
+				            type : 'POST', 
+				            data : formData2, 
+				            dataType: "json",
+				            success : function(data) {
+				                var jsonObj = JSON.parse(data);
+				            }, // success 
+				    
+				            error : function(xhr, status) {
+				                alert(xhr + " : " + status);
+				            }
+				        }); // $.ajax */
+				        
+	                	$(location).attr("href", "DamOrder_done.jsp");
+	                }
+
 					</script>
-			<input type="submit" value="입력" style="float:left; margin-left:50px;">
-			</form>
+			
 			</section>
             </div>
         </div>

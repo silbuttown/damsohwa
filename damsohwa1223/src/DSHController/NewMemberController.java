@@ -62,6 +62,11 @@ public class NewMemberController extends HttpServlet {
 		String tel = request.getParameter("tel"); // 사용자 연락처		
 		String addr = request.getParameter("addr"); // 사용자 주소_수령주소		
 		
+		System.out.println(plant); 
+		System.out.println(user);
+		System.out.println(tel);
+		System.out.println(addr);
+		
 		Calendar cal = Calendar.getInstance();
 		int month = cal.get(Calendar.MONTH)+1;
 		int date = cal.get(Calendar.DATE);		
@@ -76,12 +81,12 @@ public class NewMemberController extends HttpServlet {
 		userData.put("g_time", info.getWakeH());
 		userData.put("s_time", info.getSleepH());
 		userData.put("takeMediE",info.getTakeMediE());
-		userData.put("bright","배송중!!!");
-		userData.put("flame","배송중!!!");
-		userData.put("gas","배송중!!!");
-		userData.put("humid","배송중!!!");
-		userData.put("soil","배송중!!!");
-		userData.put("temp","배송중!!!");
+		userData.put("bright",0);
+		userData.put("flame",0);
+		userData.put("gas",0);
+		userData.put("humid",0);
+		userData.put("soil",0);
+		userData.put("temp",0);
 		
 		//ArrayList<String> time = new ArrayList<>();
 		if(info.getTakeMedi().equals("있다")) {
