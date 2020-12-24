@@ -278,19 +278,19 @@
                             <%System.out.println(plant1txt);%>
                             <%System.out.println(plant2txt);%>
                         }else if($('input:radio[id=glue,glue2,glue3,glue4,glue5]').is(':checked')){
+                        	<%plant1txt = "수국";
+                        	plant1img = "images/flor1.png";
+                        	plant2txt = "상추";
+                			plant2img = "images/crop2.png";%>
+                            <%System.out.println(plant1txt);%>
+                            <%System.out.println(plant2txt);%>
+                        }else{
                         	<%plant = "glue";
                     		plant1txt = "장미허브";
                     		plant1img = "images/flor2.png";
                         	plant2txt = "방울토마토";
                         	plant2img = "images/crop1.png";%>
                         	<%System.out.println(plant);%>
-                            <%System.out.println(plant1txt);%>
-                            <%System.out.println(plant2txt);%>
-                        }else{
-                        	<%plant1txt = "수국";
-                        	plant1img = "images/flor1.png";
-                        	plant2txt = "상추";
-                			plant2img = "images/crop2.png";%>
                             <%System.out.println(plant1txt);%>
                             <%System.out.println(plant2txt);%>
                         }

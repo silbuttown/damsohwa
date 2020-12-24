@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DSHinfoVO {
-	public int ID;
+	public String ID;
 	private String wakeH;
 	private String sleepH;
 	private String takeMedi;
@@ -30,11 +30,11 @@ public class DSHinfoVO {
 		this.m_time = m_time;
 	}
 
-	public int getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(int iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 

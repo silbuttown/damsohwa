@@ -97,7 +97,7 @@ public class App {
     	ApiFuture<QuerySnapshot> querySnapshot = query.get();
 
     	for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
-    		ivo.setID(Integer.parseInt(document.getString("ID")));
+    		ivo.setID(document.getString("ID"));
     		ivo.setWakeH(document.getString("g_time"));    		
     		ivo.setSleepH(document.getString("s_time"));
     		ivo.setM_time((ArrayList<String>)document.get("m_time"));
@@ -118,7 +118,7 @@ public class App {
 	   
 	   for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
 		   svo.setID(Integer.parseInt(document.getString("ID")));
-		   svo.setBright(Integer.parseInt(document.getString("bright").toString()));
+		   svo.setBright(Integer.parseInt(document.getString("bright")));
 		   svo.setFlame(Integer.parseInt(document.getString("flame")));
 		   svo.setGas(Integer.parseInt(document.getString("gas")));
 		   svo.setHumid(Float.parseFloat(document.getString("humid")));
