@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import com.google.api.core.ApiFuture;
+import com.google.api.services.storage.Storage.BucketAccessControls.List;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
@@ -46,13 +47,27 @@ public class App {
 //        }
     }
     
-    public void init() throws Exception{
+    public void init() throws Exception{    	
+    	
         FileInputStream refreshToken = new FileInputStream(PATH);
+        FirebaseApp firebaseApp = null;
+        java.util.List<FirebaseApp> firebaseApps = FirebaseApp.getApps();
+         
+        if(firebaseApps != null && !firebaseApps.isEmpty()){
+                     
+            for(FirebaseApp app : firebaseApps){
+                if(app.getName().equals(FirebaseApp.DEFAULT_APP_NAME)) {
+                    firebaseApp = app;
+                }
+            }
+                     
+        }else{
         option = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(refreshToken))
-                .setDatabaseUrl("https://damsohwa-4d3f4-default-rtdb.firebaseio.com")  //郴 历厘家 林家 .firebaseio.com"                
+                .setDatabaseUrl("https://damsohwa-4d3f4-default-rtdb.firebaseio.com")               
                 .build();
         FirebaseApp.initializeApp(option);
+        }
     }    
 
     public void makeDatabaseConn(){  //Firestore 牢胶畔胶 积己

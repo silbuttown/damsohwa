@@ -41,17 +41,20 @@ public class NewMemberController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();		
 		DSHinfoVO info = (DSHinfoVO)session.getAttribute("info");
-		String PATH = "C:\\Users\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json"; 
-		InputStream serviceAccount = new FileInputStream(PATH);
-	  	FileInputStream refreshToken = new FileInputStream(PATH);
-	  	//GoogleCredentials credentials = GoogleCredentials.getApplicationDefault();
-	  	FirebaseOptions option = new FirebaseOptions.Builder()
-	             .setCredentials(GoogleCredentials.fromStream(refreshToken))
-	             .setDatabaseUrl("https://damsohwa-4d3f4-default-rtdb.firebaseio.com")  //내 저장소 주소 .firebaseio.com"                
-	             .build();
-	    FirebaseApp.initializeApp(option);		 
-	    Firestore db = FirestoreClient.getFirestore();	   
-	  	 
+		App app = new App();
+//		String PATH = "C:\\Users\\damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json"; 
+//		InputStream serviceAccount = new FileInputStream(PATH);
+//	  	FileInputStream refreshToken = new FileInputStream(PATH);
+//	  	//GoogleCredentials credentials = GoogleCredentials.getApplicationDefault();
+//	  	FirebaseOptions option = new FirebaseOptions.Builder()
+//	             .setCredentials(GoogleCredentials.fromStream(refreshToken))
+//	             .setDatabaseUrl("https://damsohwa-4d3f4-default-rtdb.firebaseio.com")  //내 저장소 주소 .firebaseio.com"                
+//	             .build();
+//	    FirebaseApp.initializeApp(option);		 
+//	    Firestore db = FirestoreClient.getFirestore();	   
+//	  	 
+		
+		 
 		System.out.println("--여기부터--------------------------------------------------------");
 		
 		String plant = request.getParameter("damsohwa"); // 사용자 선택 화분
@@ -65,7 +68,6 @@ public class NewMemberController extends HttpServlet {
 		String birth = request.getParameter("birth"); // 사용자 생일 + 오늘날짜(담소화생일) => 일련번호
 		String loginNo = birth + month + date; // 로그인 가능한 일련번호 		
 		System.out.println("--여기까지-------------------------------------------------------------------");
-		DocumentReference docRef = db.collection("Damsohwa").document(user);
 		Map<String, Object> userData = new HashMap<>();
 		userData.put("plant", plant);
 		userData.put("tel",tel);
@@ -74,6 +76,13 @@ public class NewMemberController extends HttpServlet {
 		userData.put("g_time", info.getWakeH());
 		userData.put("s_time", info.getSleepH());
 		userData.put("takeMediE",info.getTakeMediE());
+		userData.put("bright","배송중!!!");
+		userData.put("flame","배송중!!!");
+		userData.put("gas","배송중!!!");
+		userData.put("humid","배송중!!!");
+		userData.put("soil","배송중!!!");
+		userData.put("temp","배송중!!!");
+		
 		//ArrayList<String> time = new ArrayList<>();
 		if(info.getTakeMedi().equals("있다")) {
 		/*	for(int i=0;i<info.getTakeMediE();i++) {
@@ -83,13 +92,17 @@ public class NewMemberController extends HttpServlet {
 			userData.put("m_time", info.getM_time());
 		}else {
 			userData.put("m_time", null);
-		}
-		ApiFuture<WriteResult> result = docRef.set(userData);
+		}		
+		
 		try {
+			app.init();
+			app.makeDatabaseConn();
+			DocumentReference docRef = app.db.collection("Damsohwa").document(user);
+			ApiFuture<WriteResult> result = docRef.set(userData);
 			System.out.println("Update time : " + result.get().getUpdateTime());
-		} catch (InterruptedException | ExecutionException e) {
+		} catch (Exception e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 	}
 
