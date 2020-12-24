@@ -94,7 +94,7 @@
 							<label for="drop" class="toggle toogle-2">Menu</label>
 							<input type="checkbox" id="drop" />
 							<ul class="menu">
-								<li><a href="#banner" class="smooth-scroll">HOME</a></li>
+								<li><a href="DamHome.jsp" class="smooth-scroll">HOME</a></li>
 								<li><a href="DamOrder.jsp">주문하기</a></li>
 								<li><a href="DamLogin.jsp">로그인</a></li>
 							</ul>

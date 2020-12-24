@@ -375,7 +375,7 @@
 					</ul>
 				</div>
 				<div class="col-xl-4 mt-xl-0 mt-md-5 mt-4 text-xl-right text-center">
-					<img class="img-fluid rounded" src="images/livingroom.jpg" alt="services">
+					<img class="img-fluid rounded" src="images/services.jpg" alt="services" style="margin-top:60px;">
 				</div>
 			</div>
 		</div>
