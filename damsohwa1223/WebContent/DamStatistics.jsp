@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ page import = "DSHModel.DSHsensorVO" %>
+     <%@ page import = "DSHModel.DSHinfoVO" %>
 <!DOCTYPE html>
 <% 
 	request.setCharacterEncoding("UTF-8");	
-	DSHsensorVO vo = (DSHsensorVO)session.getAttribute("svo");	
+	DSHsensorVO vo = (DSHsensorVO)session.getAttribute("svo");
+	DSHinfoVO infovo = (DSHinfoVO)session.getAttribute("ivo");
 	//float soil = Float.parseFloat(session.getAttribute("soil").toString());
 
 %>
@@ -54,7 +56,7 @@
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 	<!-- Style-CSS -->
 	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style4.css">
 	<link rel="stylesheet" type="text/css" href="css/style2.css">
   	<link rel="stylesheet" type="text/css" href="styles/custom-responsive-style.css">
   	<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
@@ -116,41 +118,37 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Total Sales</h4>
+                            <div class="card-body" style="margin-top:280px;">
+                                <h4 class="card-title" style="text-align: center; margin-bottom: 50px;">일련번호 <%=infovo.getID()%>의 설정</h4>
                                 <div id="campaign-v2" class="mt-2" style="height:283px; width:100%;"></div>
                                 <ul class="list-style-none mb-0">
                                     <li>
                                         <li>
                                         <i class="fas fa-circle text-primary font-10 mr-2"></i>
-                                        <span class="text-muted">토양습도</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=vo.getSoil()%></span>
+                                        <span class="text-muted">기상시간</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=infovo.getWakeH()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
-                                        <span class="text-muted">온도</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=vo.getTemp()%></span>
+                                        <span class="text-muted">취침시간</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=infovo.getSleepH()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
-                                        <span class="text-muted">습도</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=vo.getHumid()%></span>
+                                        <span class="text-muted">복용약 여부</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=infovo.getTakeMedi()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">가스</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=vo.getGas()%></span>
+                                        <span class="text-muted">하루 복용 횟수</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=infovo.getTakeMediE()%></span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">불꽃</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=vo.getFlame()%></span>
+                                        <span class="text-muted">복용 시간</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=infovo.getM_time()%></span>
                                     </li>
-                                    <li class="mt-3">
-                                        <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">조도</span>
-                                        <span class="text-dark float-right font-weight-medium"><%=vo.getBright()%></span>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -158,14 +156,14 @@
                     
                     <div class="col-lg-6 col-md-12">
                         <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title mb-4">Earning by Location</h4>
-                                <div class="" style="height:180px">
-                                    <div id="visitbylocate" style="height:100%"></div>
-                                </div>
-                                <div class="row mb-3 align-items-center mt-1 mt-5">
+                            <div class="card-body" style="margin-top:200px;">
+                                <h4 class="card-title mb-4" style="text-align: center; margin-bottom: 70px;">현재 상태</h4>
+                                <div style="text-align: center; margin-bottom: 20px;">
+                                	<img src="images/static_img.png" style="height: 300px;">
+                                </div>	
+                                <div class="row mb-3 align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">India</span>
+                                        <span class="text-muted font-14">토양습도</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
@@ -174,30 +172,30 @@
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">28%</span>
-                                    </div>
-                                </div>
-                                
-                                
-                                <div class="row mb-3 align-items-center mt-1 mt-5">
-                                    <div class="col-4 text-right">
-                                        <span class="text-muted font-14">India</span>
-                                    </div>
-                                    <div class="col-5">
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">28%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium"><%=vo.getSoil()%></span>
                                     </div>
                                 </div>
                                 
                                 
                                 <div class="row mb-3 align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">UK</span>
+                                        <span class="text-muted font-14">온도</span>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 text-right">
+                                        <span class="mb-0 font-14 text-dark font-weight-medium"><%=vo.getTemp()%></span>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="row mb-3 align-items-center">
+                                    <div class="col-4 text-right">
+                                        <span class="text-muted font-14">습도</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
@@ -206,35 +204,50 @@
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">21%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium"><%=vo.getHumid()%></span>
                                     </div>
                                 </div>
                                 <div class="row mb-3 align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">USA</span>
+                                        <span class="text-muted font-14">가스</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
                                             <div class="progress-bar bg-cyan" role="progressbar" style="width: 60%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">18%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium"><%=vo.getGas()%></span>
                                     </div>
                                 </div>
-                                <div class="row align-items-center">
+                                <div class="row mb-3 align-items-center">
                                     <div class="col-4 text-right">
-                                        <span class="text-muted font-14">China</span>
+                                        <span class="text-muted font-14">불꽃</span>
                                     </div>
                                     <div class="col-5">
                                         <div class="progress" style="height: 5px;">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 50%"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-3 text-right">
-                                        <span class="mb-0 font-14 text-dark font-weight-medium">12%</span>
+                                        <span class="mb-0 font-14 text-dark font-weight-medium"><%=vo.getFlame()%></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-3 align-items-center">
+                                    <div class="col-4 text-right">
+                                        <span class="text-muted font-14">조도</span>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar bg-cyan" role="progressbar" style="width: 60%"
+                                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 text-right">
+                                        <span class="mb-0 font-14 text-dark font-weight-medium"><%=vo.getBright()%></span>
                                     </div>
                                 </div>
                             </div>
@@ -245,40 +258,7 @@
                 <!-- End Sales Charts Section -->
                 <!-- *************************************************************** -->
                 <!-- *************************************************************** -->
-                <!-- Start Location and Earnings Charts Section -->
-                <!-- *************************************************************** -->
-                <div class="row">
-                    <div class="col-md-6 col-lg-10">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex align-items-start">
-                                    <h4 class="card-title mb-0">Earning Statistics</h4>
-                                    <div class="ml-auto">
-                                        <div class="dropdown sub-dropdown">
-                                            <button class="btn btn-link text-muted dropdown-toggle" type="button"
-                                                id="dd1" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
-                                                <i data-feather="more-vertical"></i>
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd1">
-                                                <a class="dropdown-item" href="#">Insert</a>
-                                                <a class="dropdown-item" href="#">Update</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pl-4 mb-5">
-                                    <div class="stats ct-charts position-relative" style="height: 315px;"></div>
-                                </div>
-                                <ul class="list-inline text-center mt-4 mb-0">
-                                    <li class="list-inline-item text-muted font-italic">Earnings for this month</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+                
                 
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>

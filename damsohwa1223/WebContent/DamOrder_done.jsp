@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="DSHModel.DSHinfoVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -35,7 +36,9 @@
 	</head>
 	<body>
 		<%
-			DSHinfoVO ivo = (DSHinfoVO)session.getAttribute("ivo");
+		String birth = request.getParameter("birth");
+		
+		Calendar cal = Calendar.getInstance();
 		%>
 
 		<div class="limiter">
@@ -52,8 +55,12 @@
                         
                         	<h4>주문이 완료 되었습니다!</h4><br>
                         	<h5>로그인 일련번호는</h5>
-                        	<h3 style="border:solid 1px #eee;"><%-- <%=ivo.getID() %> --%></h3>
+                        	<input type="hidden" name="" value="<%=birth %>">
+                        	<h3><%=birth %><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%></h3>
                         	<h5>입니다.</h5><br>
+                        	<!--   -->
+                        	<!-- <h3 style="border:solid 1px #eee;"></h3>  -->
+                        	<!--   -->
                             
 						</div>
 

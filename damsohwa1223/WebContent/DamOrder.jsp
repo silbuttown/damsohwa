@@ -68,23 +68,13 @@
     <script type="text/javascript" src="<c:url value="script/jquery-3.2.1.min.js"/>"></script>
 	
 	<script>
-	<%int flora = 0;
-	int crop = 0;
-	int glue = 0;
-	String plant = "";
-	String plant1txt = "";
-	String plant2txt = "";
-	String plant1img = "";
-	String plant2img = "";
-	%>
- 	
 	function checkRow(event) {
  		//document.getElementById('damsohwa').innerHTML = event + document.getElementById('damsohwa').innerHTML;
 		document.getElementById('damsohwa').value = event;
 		document.getElementById("plant").innerText = event;
 		var event_test = event;
 		alert(event_test + ' "next 버튼을 눌러주세요"');
-	} 	
+	}
 	</script>
 	</head>
 	<body>
@@ -135,7 +125,7 @@
 								<li><a href="DamOrder.jsp">주문하기</a></li>
 								<li><a href="DamStatistics.jsp">통계</a></li>
 							<%if(ivo!=null) { %>
-								<li><a href="DamHome.jsp">로그아웃</a></li>
+								<li><a href="Logout">로그아웃</a></li>
 							<%}else { %>
 								<li><a href="DamLogin.jsp">로그인</a></li>
 							<%} %>
@@ -170,13 +160,16 @@
                         transitionEffect: "slideLeft"
                     });
                 });
-                
-                $.fn.steps.defaults.onFinished = function (event, currentIndex) {
-                	$(location).attr("href", "DamOrder_done.jsp");
-                }
-                
             </script>
-
+			<%int flora = 0;
+			int crop = 0;
+			int glue = 0;
+			String plant = "";
+			String plant1txt = "";
+			String plant2txt = "";
+			String plant1img = "";
+			String plant2img = "";
+			%>
             <div class="wizard" id="wizard">
                 <h2>화분찾기</h2>
                 
@@ -189,15 +182,15 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">꽃
-                                    <input type="radio" name="radio1" value="꽃" <%flora+=1; %>>
+                                    <input type="radio" id="flora" name="radio1" value="꽃" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">열매
-                                    <input type="radio" name="radio1" value="열매" <%crop+=1; %>>
+                                    <input type="radio" id="crop" name="radio1" value="열매" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">기타
-                                    <input type="radio" name="radio1" value="기타" <%glue+=1; %>>
+                                    <input type="radio" id="glue" name="radio1" value="기타" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -211,11 +204,11 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">시원
-                                    <input type="radio" name="radio2" value="시원" <%glue+=1; %>>
+                                    <input type="radio" id="glue2" name="radio2" value="시원" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">따뜻
-                                    <input type="radio" name="radio2" value="따뜻" <%flora+=1; %><%crop+=1; %>>
+                                    <input type="radio" id="floracrop2" name="radio2" value="따뜻" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -229,11 +222,11 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">잘 돌본다
-                                    <input type="radio" name="radio3" value="잘한다" <%flora+=1; %><%crop+=1; %>>
+                                    <input type="radio" id="floracrop3" name="radio3" value="잘한다" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">잘 못 돌본다
-                                    <input type="radio" name="radio3" value="못한다" <%glue+=1; %>>
+                                    <input type="radio" id="glue3" name="radio3" value="못한다" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -247,46 +240,63 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">꽃
-                                    <input type="radio" name="radio4" value="꽃" <%flora+=1; %>>
+                                    <input type="radio" id="flora4" name="radio4" value="꽃" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">열매
-                                    <input type="radio" name="radio4" value="열매" <%crop+=1; %>>
+                                    <input type="radio" id="crop4" name="radio4" value="열매" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">허브
-                                    <input type="radio" name="radio4" value="허브" <%glue+=1; %>>
+                                    <input type="radio" id="glue4" name="radio4" value="허브" onchange="setDisplay()">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">나무
-                                    <input type="radio" name="radio4" value="나무" <%glue+=1; %>> <!-- 자바스크립트로 선택되는 값 계산하여 결과내기 -->
+                                    <input type="radio" id="glue5" name="radio4" value="나무" onchange="setDisplay()"> <!-- 자바스크립트로 선택되는 값 계산하여 결과내기 -->
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                         </div>
-                <%
-             	//flora 1 수국  2 장미허브
-             	//crop  1 방울토마토  2 상추
-                if((flora>crop) && (flora>glue)) {
-                	plant = "flora";
-                	plant1txt = "수국";
-                	plant1img = "images/flor1.png";
-                	plant2txt = "장미허브";
-                	plant2img = "images/flor2.png";
-            	}else if((crop>flora) && (crop>glue)) {
-            		plant = "crop";
-            		plant1txt = "방울토마토";
-            		plant1img = "images/crop1.jpg";
-                	plant2txt = "상추";
-                	plant2img = "images/crop2.png";
-                	
-            	}else {
-            		plant = "glue";
-            		plant1txt = "장미허브";
-            		plant1img = "images/flor2.png";
-                	plant2txt = "방울토마토";
-                	plant2img = "images/crop1.png";
-            	} %>
+                    <script>
+                    function setDisplay(){
+                        if($('input:radio[id=flora]').is(':checked')){
+                            <%plant = "flora";
+                        	plant1txt = "수국";
+                        	plant1img = "images/flor1.png";
+                        	plant2txt = "장미허브";
+                        	plant2img = "images/flor2.png";%>
+                            <%System.out.println(plant);%>
+                            <%System.out.println(plant1txt);%>
+                            <%System.out.println(plant2txt);%>
+                        }else if($('input:radio[id=crop,crop4]').is(':checked')){
+                        	<%plant = "crop";
+                    		plant1txt = "방울토마토";
+                    		plant1img = "images/crop1.jpg";
+                        	plant2txt = "상추";
+                        	plant2img = "images/crop2.png";%>
+                        	<%System.out.println(plant);%>
+                            <%System.out.println(plant1txt);%>
+                            <%System.out.println(plant2txt);%>
+                        }else if($('input:radio[id=glue,glue2,glue3,glue4,glue5]').is(':checked')){
+                        	<%plant = "glue";
+                    		plant1txt = "장미허브";
+                    		plant1img = "images/flor2.png";
+                        	plant2txt = "방울토마토";
+                        	plant2img = "images/crop1.png";%>
+                        	<%System.out.println(plant);%>
+                            <%System.out.println(plant1txt);%>
+                            <%System.out.println(plant2txt);%>
+                        }else{
+                        	<%plant1txt = "수국";
+                        	plant1img = "images/flor1.png";
+                        	plant2txt = "상추";
+                			plant2img = "images/crop2.png";%>
+                            <%System.out.println(plant1txt);%>
+                            <%System.out.println(plant2txt);%>
+                        }
+                    }
+
+                    </script>
                 </section>
 
                 <h2>화분선택</h2> <!-- 테스트용. 서블릿에서 데이터 받아오도록 변형 예정/ 화분 4step로 넘기기 -->
@@ -486,8 +496,6 @@
                                 	</select>
                               </div>
                           </div>
-                          <br><br>
-                          <input class="btn-done btn-outline-pr dshbtn-done dshbtn-block" type="button" value="입력" onclick="memberRootin(); return false;">
                           
                         </form>
 						<!-- 스크립트 시작 -->
@@ -606,13 +614,11 @@
 						</div>
 					</div>
 				</div>
-				<input class="btn-done btn-outline-pr dshbtn-done dshbtn-block" type="button" value="입력" onclick="memberOrder(); return false;">
 			</form>
 					<script>
 					$('#damsohwa').on('change', function(){
 						$('#damsohwa1').html($('#damsohwa').val());
 					});
-					
 					
 					function printName(textbox)  {
 						const birth = document.getElementById('birth').value;
@@ -624,6 +630,7 @@
 					}
 						  
 					$.fn.steps.defaults.onFinished = function (event, currentIndex) {
+						const birth = document.getElementById('birth').value;
 	                	var formData1 = $("#form1").serialize();
 
 				        $.ajax({
@@ -659,7 +666,7 @@
 				            }
 				        }); // $.ajax */
 				        
-	                	$(location).attr("href", "DamOrder_done.jsp");
+	                	$(location).attr("href", "DamOrder_done.jsp?birth="+birth);
 	                }
 					</script>
 			

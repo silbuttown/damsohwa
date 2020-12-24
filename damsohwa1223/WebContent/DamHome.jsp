@@ -124,6 +124,7 @@
 
 		<%
 			DSHinfoVO ivo = (DSHinfoVO)session.getAttribute("ivo");
+			DSHinfoVO info = (DSHinfoVO)session.getAttribute("info");
 		%>
 
 	<div id="home">
@@ -165,11 +166,11 @@
 								
 								<li><a href="DamOrder.jsp">주문하기</a></li>
 								<li><a href="DamStatistics.jsp">통계</a></li>
-							<%if(ivo!=null) { %>
-								<li><a href="DamHome.jsp">로그아웃</a></li>
-							<%}else { %>
+								<%if(ivo!=null) { %>
+								<li><a href="Logout">로그아웃</a></li>
+								<%}else { %>
 								<li><a href="DamLogin.jsp">로그인</a></li>
-							<%} %>
+								<%}%>
 							</ul>
 						</nav>
 					</div>

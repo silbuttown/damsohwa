@@ -607,9 +607,6 @@
 						$('#damsohwa1').html($('#damsohwa').val());
 					});
 					
-					
-					
-					
 					function printName(textbox)  {
 						const birth = document.getElementById('birth').value;
 						if(textbox.value.length == 4) {
