@@ -33,6 +33,7 @@
 
     <!-- Main CSS-->
     <link href="css/main2.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="dsh/dshjumoon.css">
 	</head>
 	<body>
 		<%
@@ -41,7 +42,7 @@
 		Calendar cal = Calendar.getInstance();
 		%>
 
-		<div class="limiter">
+		<div class="limit">
 			<div class="container-login100">
 				<div class="wrap-login100">
 					<form class="login100-form validate-form">
@@ -56,7 +57,7 @@
                         	<h4>주문이 완료 되었습니다!</h4><br>
                         	<h5>로그인 일련번호는</h5>
                         	<input type="hidden" name="" value="<%=birth %>">
-                        	<h3><%=birth %><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%></h3>
+                        	<h3 class="dsh-order-done"><%=birth %><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%></h3>
                         	<h5>입니다.</h5><br>
                         	<!--   -->
                         	<!-- <h3 style="border:solid 1px #eee;"></h3>  -->

@@ -11,7 +11,13 @@
     background-color: rgba( 255, 255, 255, 0.7 );
 }
 
-.sl {
+.dsh-order-done {
+	background: #eee;
+	border:solid 1px #eee;
+	border-radius: 15%;
+	margin: 2px;
+	padding: 1px;
+	border-radius: .3rem;
 }
 
 .dshnav_w3ls {
