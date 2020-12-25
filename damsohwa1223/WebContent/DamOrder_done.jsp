@@ -42,9 +42,9 @@
 		Calendar cal = Calendar.getInstance();
 		%>
 
-		<div class="limit">
-			<div class="container-login100">
-				<div class="wrap-login100">
+		<div class="body-done">
+			<div class="container-done100">
+				<div class="wrap-done100">
 					<form class="login100-form validate-form">
 						<span class="login100-form-title p-b-26">
 						<img src="images/damsohwaLogo.png" alt="My Image" width="80" height="110" style = "padding:1;">
@@ -55,6 +55,7 @@
 						<div class="text-center">
                         
                         	<h4>주문이 완료 되었습니다!</h4><br>
+                        	
                         	<h5>로그인 일련번호는</h5>
                         	<input type="hidden" name="" value="<%=birth %>">
                         	<h3 class="dsh-order-done"><%=birth %><%=cal.get(Calendar.MONTH)+1%><%=cal.get(Calendar.DATE)%></h3>
@@ -67,7 +68,7 @@
 
 						<div class="container-login100-form-btn">
 							<div class="wrap-login100-form-btn">
-								<div class="login100-form-bgbtn"></div>
+								<div class="done100-form-bgbtn"></div>
 								<button class="login100-form-btn" type="button" value="홈으로" onclick="goHome()">
 								홈으로
 								</button>
