@@ -47,6 +47,8 @@
 		}
 	</script>
 	<!--// Meta tag Keywords -->
+	
+	<link rel="stylesheet" href="dsh/dshjumoon.css">
 
 	<!-- Custom-Files -->
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -78,25 +80,54 @@
     
 </head>
 <body>
-<header class="header-style fixed-top" style="border: 50px;">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- 네비게이션 바 시작 -->
+        <div>
+		<header class="header-style fixed-top" style="padding:0 !important; border: 50px;">
 			<div class="container">
 				<div class="header d-lg-flex justify-content-between align-items-center">
 					
 					<!-- 네비게이션 바 로고 -->
-					<h1 class="logo text-center">
-						<img src="images/damsohwaLogo.png" alt="My Image" width="30" height="50" style = "padding:10">
+					<h1 class="logo text-center" class="fa fa-pagelines" aria-hidden="true">
+						<a href="DamHome.jsp"><img src="images/damsohwaLogo.png" alt="My Image" width="80" height="110" style = "padding:1;"></a>
 					</h1>
 					<!-- 네비게이션 바 로고 끝 -->
 					
 					<!-- 네비게이션 바 -->
-					<div class="nav_w3ls">
-						<nav>
+					<div class="dshnav_w3ls" style="height: 100px;">
+						<nav style="padding-top:60px;" class="dshnav">
 							<label for="drop" class="toggle toogle-2">Menu</label>
-							<input type="checkbox" id="drop" />
+							<input type="checkbox" id="drop"/>
 							<ul class="menu">
-								<li><a href="#banner" class="smooth-scroll">HOME</a></li>
+								<li><a href="DamHome.jsp" class="smooth-scroll">HOME</a></li>
+								<li><a href="DamHome.jsp#testi" class="smooth-scroll"></a></li>
+								<li><a href="DamHome.jsp#video-intro" class="smooth-scroll"></a></li>
+								<li><a href="DamHome.jsp#services" class="smooth-scroll"></a></li>
+								
+								<li>
+									<!-- First Tier Drop Down
+									<label for="drop-2" class="toggle toggle-drop">Pages <span class="fa fa-angle-down" aria-hidden="true"></span>
+									</label>
+									<a href="#">Pages <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+									<input type="checkbox" id="drop-2" />
+									<ul class="list-unstyled">
+										<li><a href="#why" class="drop-text">Why Choose Us</a></li>
+										<li class="my-2"><a href="#partners" class="drop-text">Our Partners</a></li>
+										<li><a href="#testi" class="drop-text">Testimonials</a></li>
+									</ul> -->
+								</li>
+								
+								
 								<li><a href="DamOrder.jsp">주문하기</a></li>
+								<li><a href="DamStatistics.jsp">통계</a></li>
+							<%if(infovo!=null) { %>
+								<li><a href="Logout">로그아웃</a></li>
+							<%}else { %>
 								<li><a href="DamLogin.jsp">로그인</a></li>
+							<%} %>
 							</ul>
 						</nav>
 					</div>
@@ -104,6 +135,9 @@
 				</div>
 			</div>
 		</header>
+		<!-- 네비게이션 바 끝 -->
+		
+		
 	            <div class="container-fluid">
                 <!-- *************************************************************** -->
                 <!-- Start First Cards -->
@@ -115,13 +149,43 @@
                 <!-- *************************************************************** -->
                 <!-- Start Sales Charts Section -->
                 <!-- *************************************************************** -->
+                
+                <div class="row" style="margin-top:130px;">
+                    <div class="" style="width: 100% !important;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <h4 class="dshcard-title" style="text-align: center !important;">일련번호 [ <%=infovo.getID()%> ]의 환경 센서 통계</h4>
+                                    <div class="ml-auto">
+                                        <div class="dropdown sub-dropdown">
+                                            <button class="btn btn-link text-muted dropdown-toggle" type="button"
+                                                id="dd1" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <i data-feather="more-vertical"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd1">
+                                                <a class="dropdown-item" href="#">Insert</a>
+                                                <a class="dropdown-item" href="#">Update</a>
+                                                <a class="dropdown-item" href="#">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
                 <div class="row">
                     <div class="col-lg-6 col-md-12">
                         <div class="card">
-                            <div class="card-body" style="margin-top:280px;">
-                                <h4 class="card-title" style="text-align: center; margin-bottom: 50px;">일련번호 <%=infovo.getID()%>의 설정</h4>
+                        	<div style="width:100% !important;">
+                                <h4 class="dshcard-title" style="padding-bottom:2px !important; width:100% !important;">활동 정보</h4>
+                            </div>
+                            <div class="card-body" style="width:100%;">
                                 <div id="campaign-v2" class="mt-2" style="height:283px; width:100%;"></div>
-                                <ul class="list-style-none mb-0">
+                                <ul class="list-style-none mb-0" style="padding:5px !important; margin:5px !important">
                                     <li>
                                         <li>
                                         <i class="fas fa-circle text-primary font-10 mr-2"></i>
@@ -148,18 +212,17 @@
                                         <span class="text-muted">복용 시간</span>
                                         <span class="text-dark float-right font-weight-medium"><%=infovo.getM_time()%></span>
                                     </li>
-                                    
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
+                            	</div>
+                        		</div>
+                    		</div>
                     
                     <div class="col-lg-6 col-md-12">
                         <div class="card">
-                            <div class="card-body" style="margin-top:200px;">
-                                <h4 class="card-title mb-4" style="text-align: center; margin-bottom: 70px;">현재 상태</h4>
+                            <div class="card-body">
+                                <h4 class="card-title mb-4" style="text-align: center; margin-bottom: 70px;">환경 정보</h4>
                                 <div style="text-align: center; margin-bottom: 20px;">
-                                	<img src="images/static_img.png" style="height: 300px;">
+                                	<img src="images/crop1.png" style="height: 300px;">
                                 </div>	
                                 <div class="row mb-3 align-items-center">
                                     <div class="col-4 text-right">
@@ -249,15 +312,18 @@
                                     <div class="col-3 text-right">
                                         <span class="mb-0 font-14 text-dark font-weight-medium"><%=vo.getBright()%></span>
                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <!-- *************************************************************** -->
                 <!-- End Sales Charts Section -->
                 <!-- *************************************************************** -->
                 <!-- *************************************************************** -->
+                
                 
                 
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
