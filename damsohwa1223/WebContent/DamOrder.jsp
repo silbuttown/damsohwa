@@ -673,8 +673,8 @@
 			</section>
             </div>
             <!-- footer -->
-		<footer class="text-center">
-			<div class="container py-xl-5" style="background-image: url(images/flowerbg.jpg) no-repeat bottom;">
+		<footer class="text-center" style="background: url(images/flowerbg.jpg) no-repeat bottom; height:300px;">
+			<div class="container py-xl-5" style="background: white; padding:30px; opacity:0.7;">
 			
 				<div class="w3l-copy text-center">
 					<p class="text-da">건강한 당신의 삶을 응원합니다.</p><br>
@@ -697,17 +697,9 @@
 						</p>
 					</li>
 					</ul>
-					</div>
-				</div><br>
-				<!-- //address -->
-			
-				<!-- copyright -->
-				<div class="w3l-copy text-center">
-				<p class="text-da">© 2021 Damsohwa. All rights reserved.
+					<p class="text-da">© 2021 Damsohwa. All rights reserved.
 				</p>
-				</div>
-				<!-- //copyright -->
-			</div>
+					</div>
 		</footer>
 		<!-- //footer -->
         </div>

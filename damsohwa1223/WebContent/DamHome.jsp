@@ -415,7 +415,7 @@
 	<!-- 갤러리 시작 -->
 	<section class="portfolio py-5" id="gallery">
 		<div class="container py-xl-5 py-lg-3">
-			<h3 class="w3ls-title text-center font-weight-bold mb-5">Our <span class="font-weight-light">Plants</span></h3>
+			<h3 class="w3ls-title text-center font-weight-bold mb-5">갤러리</h3>
 			<div class="row pt-4">
 				<div class="col-md-3 gal-grid-wthree">
 					<div class="gallery-demo">
@@ -595,10 +595,10 @@
 </script> -->
 
 	<!-- footer -->
-		<footer class="text-center py-4">
-			<div class="container py-xl-5 py-4" style="background-image: url(images/flowerbg.jpg) no-repeat bottom;">
+		<footer class="text-center py-4" style="background: url(images/flowerbg.jpg) no-repeat bottom; height:300px;">
+			<div class="container py-xl-5 py-4">
 			
-				<div class="contact-left-footer mt-4">
+				<div class="contact-left-footer mt-4" style="background: white; padding:30px; opacity:0.7;">
 					<h6 class="text-da let mb-3">건강한 당신의 삶을 응원합니다.</h6>
 					<ul>
 					<li>
@@ -618,15 +618,11 @@
 						</p>
 					</li>
 					</ul>
+					<p class="text-da">© 2021 Damsohwa. All rights reserved.
+				</p>
 				</div>
 				<!-- //address -->
 			
-				<!-- copyright -->
-				<div class="w3l-copy text-center mt-5">
-				<p class="text-da">© 2021 Damsohwa. All rights reserved.
-				</p>
-				</div>
-				<!-- //copyright -->
 			</div>
 		</footer>
 		<!-- //footer -->
