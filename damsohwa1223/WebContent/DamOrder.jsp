@@ -45,7 +45,7 @@
     <!-- <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all"> -->
 
     <!-- Main CSS-->
-    <link href="css/main3.css" rel="stylesheet" media="all">
+    <!-- <link href="css/main3.css" rel="stylesheet" media="all"> -->
     
     <link rel="stylesheet" href="dsh/dshjumoon.css">
     <link rel="stylesheet" type="text/css" href="css/main.css?1">
@@ -137,7 +137,7 @@
 			</div>
 		</header>
 		<!-- 네비게이션 바 끝 -->
-		<div class="limit">
+		<div class="body-order">
 		<header>
             <div class="card card-5">
                 <div class="card-heading">
