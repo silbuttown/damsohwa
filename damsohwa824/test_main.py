@@ -25,7 +25,7 @@ from timecheck_firebase import Check
 DOCUMENT = '차세리'
 
 check_time = None
-cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json")
+#cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json")
 #firebase_admin.initialize_app(cred)
 db=firestore.client()
 doc_ref = db.collection(u'Damsohwa').document(DOCUMENT)
@@ -64,7 +64,7 @@ while True:
         if check_time is None:
             check_time = dt.datetime.now()
         else:
-        result = dt.datetime.now()-check_time
+            result = dt.datetime.now()-check_time
             if result > dt.timedelta(hours = 24):
                 Check(3)
             elif result > dt.timedelta(hours = 16):

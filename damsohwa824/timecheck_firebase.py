@@ -4,6 +4,8 @@ from firebase_admin import firestore
 import schedule
 import time
 
+#cred = credentials.Certificate("damsohwa-4d3f4-firebase-adminsdk-okod4-5427e232ce.json")
+#firebase_admin.initialize_app(cred)
 db=firestore.client()
 doc_ref = db.collection(u'Damsohwa').document(u'차세리')
 
@@ -23,6 +25,6 @@ def Check(version):
         })
     elif version == 0:
         doc_ref.update({  
-            u'check': '특이사항 없음'
+            u'check': None
         })
 Check(0)        
