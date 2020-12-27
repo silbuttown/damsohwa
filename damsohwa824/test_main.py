@@ -19,7 +19,7 @@ from plants_gas_flame import gas, flame, bright, soil, temp
 from test_function import Scan
 
 #+++++++++++++++++++++++++++++++++++++++++++++
-from timecheck_firebase import Check, Check2
+from timecheck_firebase import Check
 
 # Target document
 DOCUMENT = '차세리'
@@ -66,10 +66,15 @@ while True:
         else:
         result = dt.datetime.now()-check_time
             if result > dt.timedelta(hours = 24):
-                Check2()
+                Check(3)
+            elif result > dt.timedelta(hours = 16):
+                Check(2)
             elif result > dt.timedelta(hours = 8):
-                Check()            
-        soil()   
+                Check(1)            
+        soil()
+    else :
+        check_time = None
+        Check(0)
     schedule.run_pending()
     time.sleep(1)
     
