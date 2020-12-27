@@ -1,6 +1,8 @@
 package DSHController;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,8 +42,16 @@ public class LoginController extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}		
+		if(ivo.getCheck().equals("특이사항 없음")) {
 		response.sendRedirect("DamHome.jsp");
+		}
+		else {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter writer = response.getWriter();
+			writer.println("<script>alert('어르신에게 문제가 생겼습니다!!\\n특이사항을 확인해 주세요'); location.href='"+"DamStatistics.jsp"+"';</script>");
+			writer.close();	
+		}
 	}
 
 }

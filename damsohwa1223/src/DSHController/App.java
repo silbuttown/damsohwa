@@ -100,7 +100,11 @@ public class App {
     		ivo.setID(document.getString("ID"));
     		ivo.setWakeH(document.getString("g_time"));    		
     		ivo.setSleepH(document.getString("s_time"));
+    		if(document.getString("check")==(null)) {
+    			ivo.setCheck("특이사항 없음");
+    		}else {
     		ivo.setCheck(document.getString("check"));
+    		}
     		ivo.setM_time((ArrayList<String>)document.get("m_time"));
     		System.out.println("takeMediE : "+document.getLong("takeMediE"));
     		ivo.setTakeMediE(document.getLong("takeMediE"));

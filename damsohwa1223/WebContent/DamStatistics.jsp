@@ -212,6 +212,12 @@
                                         <span class="text-muted">복용 시간</span>
                                         <span class="text-dark float-right font-weight-medium"><%=infovo.getM_time()%></span>
                                     </li>
+                                     <li class="mt-3">
+                                        <i class="fas fa-circle text-cyan font-10 mr-2"></i>
+                                        <span class="text-muted">특이사항</span>
+                                        <span class="text-dark float-right font-weight-medium"><%=infovo.getCheck()%></span>
+                                    </li>
+                              
                                 </ul>
                             	</div>
                         		</div>
