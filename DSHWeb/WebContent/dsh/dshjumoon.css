@@ -1,0 +1,292 @@
+@charset "EUC-KR";
+
+.body-order {
+    width: 100%;
+    background: url(../images/orderbody.png) bottom;
+    overflow: hidden;
+    margin-bottom: -3px !important;
+    padding: 0 !important;
+    align-items: bottom;
+    justify-content: center;
+    background-color: rgba( 255, 255, 255, 0.5 );
+}
+
+.body-done {
+	width: 100%;
+    background-image: url(../images/foryou.png);
+	overflow: hidden;
+    display: flex;
+    padding: 0 !important;
+    margin-bottom: -0.5px !important;
+    align-items: bottom;
+    object-fit:cover;
+}
+
+.container-done100 {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba( 255, 255, 255, 0.1 );
+}
+
+.wrap-done100 {
+  width: 390px;
+ /* background: #fff;*/
+  background: rgba( 255, 255, 255, 0.8 );
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 77px 55px 33px 55px;
+
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.done100-form-bgbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: -o-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: -moz-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  top: 0;
+  left: -100%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+  
+  opacity: 0.9;
+}
+/*
+display: flex;
+*/
+
+.content {
+	background: #f2f2f2;
+    background-color: rgba( 255, 255, 255, 0.7 );
+}
+
+.dsh-order-done {
+	background: rgba( 238, 238, 238, 0.7 );
+	border:solid 1px #eee;
+	border-radius: 15%;
+	margin: 2px;
+	padding: 1px;
+	border-radius: .3rem;
+}
+
+.dshnav_w3ls {
+	width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.dshnav {
+	padding-top: 40px;
+ }
+ 
+ 
+
+.toggle toogle-2{
+		margin-top: 100px;
+	}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+.header-style {
+    /* background: #fff; */
+    /* padding: 25px 0; */
+    /* -webkit-transition: .5s all; */
+    -moz-transition: .5s all;
+    /* transition: .5s all; */
+    /* z-index: 99; */
+    /* box-shadow: 3px 3px 30px 4px rgba(8, 8, 8, 0.07); */
+}
+.dshcard-title {
+	width: 100%;
+	text-align: center;
+	padding: 50px;
+	margin-bottom: 10px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 400px;
+  align-content: center;
+  justify-content: center;
+}
+
+.flex-item {
+	width: 45%;
+    min-width: 250px;
+    margin: 5px;
+}
+
+.dshselect {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    /*font-family: 'Open Sans' sans-serif !important;*/
+    font-size: 1rem;
+    /*font-size: 16px;*/
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    background-color: #fff;
+    background: #f1f2f7;
+    background-color: rgba( 255, 255, 255, 0.1 );
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+
+.clearfix {
+	color: #0f4b2d;
+}
+
+.dshcol-6 {
+	-ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-height: 100%;
+    width: 50%;
+    min-height: 1px;
+    padding: 1px;
+}
+
+
+.dshcol-7 {
+	-ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-height: 100%;
+    float: right;
+    width: 50%;
+    min-height: 1px;
+    padding: 1px;
+}
+
+.dsh-order-card {
+    display: block;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    background-color: rgba( 255, 255, 255, 0.7 );
+}
+
+.dsh-serial {
+	color: #161b01;
+	padding: 1rem;
+    font-size: 0.7rem;
+    background-color: #f2f7e1;
+    border: 1px solid #f2f7e1;
+    line-height: 1;
+    border-radius: .3rem;
+}
+
+.dshcard-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    margin: 20px;
+}
+
+/*¹öÆ°*/
+.more-info.pt-2 {
+	text-align: center;
+}
+
+.btn-outline-pr:hover {
+    color: #fff;
+    background-color: #177245;
+    border-color: #177245;
+}
+
+/*
+.btn-outline-pr:done {
+    color: #343a40;
+    background-color: #eee;
+    border-color: #eee;
+}
+*/
+
+.dshbtn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.dshbtn-block {
+    width: auto;
+}
+
+.dshbtn-done {
+	padding: .5rem 1rem;
+    font-size: 0.7rem;
+    line-height: 1;
+    border-radius: .3rem;
+}
+
+.btn-group-lg>.dshbtn, .dshbtn-lg {
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+}
+
+.btn-outline-pr {
+    color:#344003;
+    background-color: transparent;
+    background-image: none;
+    border-color:#344003 !important;
+    position: relative;
+    border: solid 1px;
+}
+
+.btn-outline-secondary {
+    color: #6c757d;
+    background-color: transparent;
+    background-image: none;
+    border-color: #6c757d;
+}
+
+.btn-outline-warning {
+    color: #ffc107;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ffc107;
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    background-color: transparent;
+    background-image: none;
+    border-color: #dc3545;
+}
+
+.header-style{
+	box-shadow: 3px 3px 30px 4px rgba(8, 8, 8, 0.07);
+}
