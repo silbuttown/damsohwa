@@ -10,6 +10,7 @@ public class DSHinfoVO {
 	private String takeMedi;
 	private long takeMediE;
 	private ArrayList<String> m_time;
+	private String check;
 	//private String takeE[];
 	//private String takeTime[];
 	//private String takemin[];
@@ -18,7 +19,8 @@ public class DSHinfoVO {
 		super();
 		this.takeMedi = null;
 		this.takeMediE = 0;
-		this.m_time = null;		
+		this.m_time = null;
+		this.check = null;
 	}
 
 	public DSHinfoVO(String wakeH, String sleepH, String takeMedi, int takeMediE, ArrayList<String> m_time) {
@@ -32,6 +34,14 @@ public class DSHinfoVO {
 
 	public String getID() {
 		return ID;
+	}
+
+	public String getCheck() {
+		return check;
+	}
+
+	public void setCheck(String check) {
+		this.check = check;
 	}
 
 	public void setID(String iD) {
@@ -81,13 +91,7 @@ public class DSHinfoVO {
 	@Override
 	public String toString() {
 		return "DSHinfoVO [ID=" + ID + ", wakeH=" + wakeH + ", sleepH=" + sleepH + ", takeMedi=" + takeMedi
-				+ ", takeMediE=" + takeMediE + ", m_time=" + m_time + "]";
+				+ ", takeMediE=" + takeMediE + ", m_time=" + m_time + ", check=" + check + "]";
 	}
 
-
-
-
-
-	
-	
 }

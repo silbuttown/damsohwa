@@ -87,6 +87,7 @@ public class NewMemberController extends HttpServlet {
 		userData.put("humid",0);
 		userData.put("soil",0);
 		userData.put("temp",0);
+		userData.put("check",null);
 		
 		//ArrayList<String> time = new ArrayList<>();
 		if(info.getTakeMedi().equals("¿÷¥Ÿ")) {
