@@ -161,15 +161,7 @@
                     });
                 });
             </script>
-			<%int flora = 0;
-			int crop = 0;
-			int glue = 0;
-			String plant = "";
-			String plant1txt = "";
-			String plant2txt = "";
-			String plant1img = "";
-			String plant2img = "";
-			%>
+            
             <div class="wizard" id="wizard">
                 <h2>화분찾기</h2>
                 
@@ -182,15 +174,15 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">꽃
-                                    <input type="radio" id="flora" name="radio1" value="꽃" onchange="setDisplay()">
+                                    <input type="radio" id="flora" name="radio1" value="수국" onchange="setDisplay1(this.value)">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">열매
-                                    <input type="radio" id="crop" name="radio1" value="열매" onchange="setDisplay()">
+                                    <input type="radio" id="crop" name="radio1" value="방울토마토" onchange="setDisplay1(this.value)">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">기타
-                                    <input type="radio" id="glue" name="radio1" value="기타" onchange="setDisplay()">
+                                    <input type="radio" id="glue" name="radio1" value="장미허브" onchange="setDisplay1(this.value)">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -204,11 +196,11 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">시원
-                                    <input type="radio" id="glue2" name="radio2" value="시원" onchange="setDisplay()">
+                                    <input type="radio" id="glue2" name="radio2" value="crop">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">따뜻
-                                    <input type="radio" id="floracrop2" name="radio2" value="따뜻" onchange="setDisplay()">
+                                    <input type="radio" id="floracrop2" name="radio2" value="flora">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -222,11 +214,11 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">잘 돌본다
-                                    <input type="radio" id="floracrop3" name="radio3" value="잘한다" onchange="setDisplay()">
+                                    <input type="radio" id="floracrop3" name="radio3">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">잘 못 돌본다
-                                    <input type="radio" id="glue3" name="radio3" value="못한다" onchange="setDisplay()">
+                                    <input type="radio" id="glue3" name="radio3" value="crop">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -240,62 +232,51 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">꽃
-                                    <input type="radio" id="flora4" name="radio4" value="꽃" onchange="setDisplay()">
+                                    <input type="radio" id="flora4" name="radio4" value="장미허브" onchange="setDisplay2(this.value)">
                                     <span class="checkmark"></span>
                                 </label>
                                 <label class="radio-container m-r-55">열매
-                                    <input type="radio" id="crop4" name="radio4" value="열매" onchange="setDisplay()">
+                                    <input type="radio" id="crop4" name="radio4" value="방울토마토" onchange="setDisplay2(this.value)">
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="radio-container m-r-55">허브
-                                    <input type="radio" id="glue4" name="radio4" value="허브" onchange="setDisplay()">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container m-r-55">나무
-                                    <input type="radio" id="glue5" name="radio4" value="나무" onchange="setDisplay()"> <!-- 자바스크립트로 선택되는 값 계산하여 결과내기 -->
+                                <label class="radio-container m-r-55">기타
+                                    <input type="radio" id="glue5" name="radio4" value="상추" onchange="setDisplay2(this.value)">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
                         </div>
                     <script>
-                    function setDisplay(){
-                        if($('input:radio[id=flora]').is(':checked')){
-                            <%plant = "flora";
-                        	plant1txt = "수국";
-                        	plant1img = "images/flor1.png";
-                        	plant2txt = "장미허브";
-                        	plant2img = "images/flor2.png";%>
-                            <%System.out.println(plant);%>
-                            <%System.out.println(plant1txt);%>
-                            <%System.out.println(plant2txt);%>
-                        }else if($('input:radio[id=crop,crop4]').is(':checked')){
-                        	<%plant = "crop";
-                    		plant1txt = "방울토마토";
-                    		plant1img = "images/crop1.jpg";
-                        	plant2txt = "상추";
-                        	plant2img = "images/crop2.png";%>
-                        	<%System.out.println(plant);%>
-                            <%System.out.println(plant1txt);%>
-                            <%System.out.println(plant2txt);%>
-                        }else if($('input:radio[id=glue,glue2,glue3,glue4,glue5]').is(':checked')){
-                        	<%plant1txt = "수국";
-                        	plant1img = "images/flor1.png";
-                        	plant2txt = "상추";
-                			plant2img = "images/crop2.png";%>
-                            <%System.out.println(plant1txt);%>
-                            <%System.out.println(plant2txt);%>
-                        }else{
-                        	<%plant = "glue";
-                    		plant1txt = "장미허브";
-                    		plant1img = "images/flor2.png";
-                        	plant2txt = "방울토마토";
-                        	plant2img = "images/crop1.png";%>
-                        	<%System.out.println(plant);%>
-                            <%System.out.println(plant1txt);%>
-                            <%System.out.println(plant2txt);%>
-                        }
-                    }
 
+                    function setDisplay1(event){
+                        document.getElementById('btnSelect1').value = event;
+                		document.getElementById("label1").innerText = event;
+                		var plant = event;
+                		var img_src;
+                		if(plant == "수국"){
+                			img_src = 'images/flor1.png';
+           				}else if(plant == "방울토마토"){
+           					img_src = 'images/crop1.jpg';
+           				}else if(plant == "장미허브"){
+           					img_src = 'images/flor2.png';
+           				}
+                		document.getElementById('plant1').src=img_src;
+                    }
+                	
+                    function setDisplay2(event){	
+                    	document.getElementById('btnSelect2').value = event;
+                		document.getElementById("label2").innerText = event;
+                		var plant = event;
+                		var img_src;
+                		if(plant == "장미허브"){
+           					img_src = 'images/flor2.png';
+           				}else if(plant == "방울토마토"){
+           					img_src = 'images/crop1.jpg';
+           				}else if(plant == "상추"){
+           					img_src = 'images/crop2.png';
+           				}
+                		document.getElementById('plant2').src=img_src;
+                    }
+                    
                     </script>
                 </section>
 
@@ -307,15 +288,15 @@
 								<div class="dshcard-body">
 									<div class="clearfix">
 										<div style="text-align: center;">
-    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant1" src=<%=plant1img%>>
-											<h3 id="label1"><%=plant1txt%></h3><br>
+    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant1" src="">
+											<h3 id="label1"></h3><br>
 										</div>
 									</div>
 									<div class="b-b-1 pt-3"></div>
 									<hr class="dshhr">
 									<div class="more-info pt-2"><br>
 											<button type="button"
-												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect1" name="btnSelect1" value=<%=plant1txt%> onClick="checkRow(this.value);">
+												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect1" name="btnSelect1" value="" onClick="checkRow(this.value);">
 												선택하기</button><br>
 									</div>
 								</div>
@@ -326,15 +307,15 @@
 								<div class="dshcard-body">
 									<div class="clearfix">
 										<div style="text-align: center;">
-    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant2" src=<%=plant2img%>>
-											<h3 id="label2"><%=plant2txt%></h3><br>
+    										<img class="plant-img" style="width: 50%; height: 50%;  align: center;" id="plant2" src="">
+											<h3 id="label2"></h3><br>
 										</div>
 									</div>
 									<div class="b-b-1 pt-3"></div>
 									<hr class="dshhr">
 									<div class="more-info pt-2"><br>
 											<button type="button"
-												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect2" name="btnSelect2" value=<%=plant2txt%> onClick="checkRow(this.value);">
+												class="dshbtn btn-outline-pr dshbtn-lg dshbtn-block" id="btnSelect2" name="btnSelect2" value="" onClick="checkRow(this.value);">
 												선택하기</button><br>
 									</div>
 								</div>
