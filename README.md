@@ -42,16 +42,37 @@ COVID-19이후 대면을 기반으로한 노인돌봄체계의 공백을 메우�
 
 ### 6. **프로젝트 결과**
 
-1. **시연 영상**
+1. **시연 영상(클릭시이동)**
+<a href="https://youtu.be/mTtYzwC68x8" height="5" width="10" target="_blank">
+    <img width="600" src="http://i.ytimg.com/vi/mTtYzwC68x8/0.jpg">
+<a>
 
-    링크 추가
 
 2. **프로젝트 사진** 
+- 제품 사진
 
-    사진 추가
+![담소화 사진](https://user-images.githubusercontent.com/71309053/103458146-a9ff5880-4d48-11eb-9540-7c615ff42197.jpg)
 
-3. **web 및 앱**
+- Web
 
-    사진추가
+![main](https://user-images.githubusercontent.com/71309053/103458105-4a08b200-4d48-11eb-8235-471d25ec1939.PNG)
 
-4. **시상 결과**
+![주문1](https://user-images.githubusercontent.com/71309053/103458106-4aa14880-4d48-11eb-9775-30b55ee29208.PNG)
+
+![통계](https://user-images.githubusercontent.com/71309053/103458107-4b39df00-4d48-11eb-9700-b8be5cdae733.PNG)
+
+- App
+
+![app_main](https://user-images.githubusercontent.com/71309053/103458191-0a8e9580-4d49-11eb-903f-d0ae53170057.png)
+
+![app_login](https://user-images.githubusercontent.com/71309053/103458195-0cf0ef80-4d49-11eb-976d-948d34261113.png)    
+
+- webview on App
+
+![app_home](https://user-images.githubusercontent.com/71309053/103458198-111d0d00-4d49-11eb-98eb-2ddeda3ff020.png)
+
+![app_statistics](https://user-images.githubusercontent.com/71309053/103458200-137f6700-4d49-11eb-8c6a-845ce05d4671.png)
+
+3. **Teamwork 결과물**
+
+![스마트그리드 최우수상](https://user-images.githubusercontent.com/71309053/103458271-c059e400-4d49-11eb-8859-9dbcb65d3469.jpg)
