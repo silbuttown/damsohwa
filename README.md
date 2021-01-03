@@ -15,11 +15,11 @@ COVID-19이후 대면을 기반으로한 노인돌봄체계의 공백을 메우�
 
 ### 2. **시스템 구성**
 
-![image](https://user-images.githubusercontent.com/71309053/103456925-2476ab00-4d3e-11eb-940d-3e4c3e58b835.png)
+![DSH_시스템](https://user-images.githubusercontent.com/71309053/103478307-18a3eb00-4e09-11eb-983a-2a9369268c2f.PNG)
 
 ### 3. **프로젝트 구성**
 
-![image](https://user-images.githubusercontent.com/71309053/103456920-17f25280-4d3e-11eb-9da3-2b5740253a55.png)
+![DSH_설계](https://user-images.githubusercontent.com/71309053/103478362-7e907280-4e09-11eb-8887-799bde95b531.PNG)
 
 ### 4. **화면구성**
 
