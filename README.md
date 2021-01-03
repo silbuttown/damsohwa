@@ -73,6 +73,11 @@ COVID-19이후 대면을 기반으로한 노인돌봄체계의 공백을 메우�
 
 ![app_statistics](https://user-images.githubusercontent.com/71309053/103458200-137f6700-4d49-11eb-8c6a-845ce05d4671.png)
 
-3. **Teamwork 결과물**
+3. **Team 소개**
+
+![실벗타운 팀소개](https://user-images.githubusercontent.com/71309053/103479416-d1215d00-4e10-11eb-830a-1ed1457c2ef4.PNG)
+
+
+4. **Teamwork 결과물**
 
 ![스마트그리드 최우수상](https://user-images.githubusercontent.com/71309053/103458271-c059e400-4d49-11eb-8859-9dbcb65d3469.jpg)
